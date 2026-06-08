@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="iPhocell - Loja especializada em produtos Apple em Cerquilho. iPhones, iPads, Apple Watches e MacBooks novos, seminovos e lacrados com as melhores condições e assistência especializada.">
+  <title>iPhocell — A evolução está em suas mãos</title>
+  
+  <!-- Estilos e Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="header" id="main-header">
+    <div class="container">
+      <nav class="navbar" id="main-nav">
+        <!-- Logo -->
+        <a href="index.html" class="logo" id="nav-logo">
+          iPho<span>cell</span>
+        </a>
+
+        <!-- Links (Desktop) -->
+        <ul class="nav-links" id="nav-links-list">
+          <li><a href="index.html" class="active">Início</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="manutencao.html">Manutenção</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+        </ul>
+
+        <!-- Ações (Busca, Favoritos, Carrinho, Hambúrguer) -->
+        <div class="nav-actions" id="nav-actions-container">
+          <!-- Busca Rápida -->
+          <div class="search-container-bar" id="nav-search-bar">
+            <div class="search-input-wrapper">
+              <i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></i>
+              <input type="text" class="header-search-input" placeholder="Buscar no iPhocell..." aria-label="Buscar produtos">
+            </div>
+          </div>
+
+          <!-- Favoritos Link -->
+          <a href="catalogo.html" class="nav-btn" id="wishlist-trigger-btn" aria-label="Ver Favoritos">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span class="badge-counter wishlist-count" style="display: none;">0</span>
+          </a>
+
+          <!-- Carrinho Link -->
+          <button class="nav-btn open-cart-btn" id="cart-trigger-btn" aria-label="Abrir Sacola">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <span class="badge-counter cart-count" style="display: none;">0</span>
+          </button>
+
+          <!-- Toggle Mobile -->
+          <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero-section">
+    <div class="container">
+      <div class="hero-content fade-in-scroll visible">
+        <span class="hero-tagline">iPhocell Store</span>
+        <h1 class="hero-title">A evolução está em suas mãos</h1>
+        <p class="hero-subtitle">
+          Descubra a linha completa de iPhone, iPad, Apple Watch e MacBook. Novos, seminovos e lacrados com garantia e suporte premium.
+        </p>
+        <div class="hero-actions">
+          <a href="catalogo.html" class="btn btn-primary">Ver Produtos</a>
+          <a href="https://api.whatsapp.com/send?phone=5515999999999&text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20iPhocell%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Falar no WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-bg-graphic">
+        <img src="assets/images/iphocell.png" alt="Showcase de aparelhos Apple iPhocell">
+      </div>
+    </div>
+  </section>
+
+  <!-- BARRA DE CONFIANÇA -->
+  <section class="trust-badges" id="trust-section">
+    <div class="container">
+      <div class="badges-grid">
+        <div class="badge-item fade-in-scroll">
+          <div class="badge-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <div class="badge-info">
+            <h4>Garantia iPhocell</h4>
+            <p>Segurança total em todas as compras.</p>
+          </div>
+        </div>
+        <div class="badge-item fade-in-scroll">
+          <div class="badge-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+          <div class="badge-info">
+            <h4>Assistência Especializada</h4>
+            <p>Técnicos certificados Apple.</p>
+          </div>
+        </div>
+        <div class="badge-item fade-in-scroll">
+          <div class="badge-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
+          <div class="badge-info">
+            <h4>Pagamento Seguro</h4>
+            <p>Em até 12x no cartão ou Pix.</p>
+          </div>
+        </div>
+        <div class="badge-item fade-in-scroll">
+          <div class="badge-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
+          <div class="badge-info">
+            <h4>WhatsApp Rápido</h4>
+            <p>Atendimento humano instantâneo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS EM DESTAQUE -->
+  <section class="section" id="featured-products-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrapper">
+          <span class="section-subtitle">Destaques da Semana</span>
+          <h2 class="section-title">Encontre seu novo iPhone</h2>
+        </div>
+        <a href="catalogo.html" class="section-link">Ver todo o catálogo ➔</a>
+      </div>
+      
+      <!-- Container com rolagem horizontal (renderizado via JS) -->
+      <div class="horizontal-scroll-container">
+        <!-- Render dinâmico de produtos -->
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER DE SERVIÇOS -->
+  <section class="services-banner fade-in-scroll" id="services-banner-section">
+    <div class="container">
+      <div class="services-banner-grid">
+        <div class="services-banner-info">
+          <h2>Assistência Técnica Apple</h2>
+          <p>Seu dispositivo quebrou? Nós consertamos com peças homologadas de alta durabilidade e rapidez extrema.</p>
+          <div class="services-tags">
+            <span class="service-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg> Troca de Tela</span>
+            <span class="service-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"></rect><line x1="22" y1="11" x2="22" y2="13"></line></svg> Bateria</span>
+            <span class="service-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Conector de Carga</span>
+            <span class="service-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg> Câmera</span>
+          </div>
+        </div>
+        <div>
+          <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 20px; color: var(--accent);">Reparos a partir de R$ 180,00</p>
+          <a href="manutencao.html" class="btn btn-accent">Ver Todos os Serviços</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONDIÇÕES DOS APARELHOS -->
+  <section class="section" id="conditions-section">
+    <div class="container">
+      <div class="section-header" style="justify-content: center; text-align: center; margin-bottom: 60px;">
+        <div class="section-title-wrapper">
+          <span class="section-subtitle">Padrões de Qualidade</span>
+          <h2 class="section-title">Como funcionam as nossas categorias?</h2>
+        </div>
+      </div>
+
+      <div class="conditions-grid">
+        <!-- Novo -->
+        <div class="condition-card fade-in-scroll">
+          <div class="condition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+          <h3>Novo</h3>
+          <p>Dispositivos na caixa oficial da Apple, nunca ativados, com acessórios originais e garantia mundial de 1 ano diretamente com a fabricante.</p>
+        </div>
+        <!-- Seminovo -->
+        <div class="condition-card fade-in-scroll">
+          <div class="condition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.92-10.26l5.08 5.08"></path></svg></div>
+          <h3>Seminovo</h3>
+          <p>Aparelhos rigorosamente inspecionados por nossos técnicos especialistas. Sem detalhes estéticos graves, 100% funcionais e com garantia iPhocell.</p>
+        </div>
+        <!-- Lacrado -->
+        <div class="condition-card lacrado fade-in-scroll">
+          <div class="condition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+          <h3>Lacrado</h3>
+          <p>Aparelhos na caixa lacrada de fábrica com selo inviolado. Ideal para quem faz questão da experiência de abrir o produto em primeira mão.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section testimonials" id="testimonials-section">
+    <div class="container">
+      <div class="section-header" style="justify-content: center; text-align: center; margin-bottom: 60px;">
+        <div class="section-title-wrapper">
+          <span class="section-subtitle">Opinião de quem compra</span>
+          <h2 class="section-title">Clientes 100% satisfeitos</h2>
+        </div>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in-scroll">
+          <div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Comprei meu iPhone 14 Pro lacrado e o atendimento foi excepcional. Recomendo muito a iPhocell pela confiança e suporte!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">MS</div>
+            <div>
+              <div class="testimonial-author-name">Mateus Silva</div>
+              <div class="testimonial-author-date">Cerquilho - SP</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-in-scroll">
+          <div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Levei meu iPhone 11 para trocar a bateria e a tela. O serviço ficou pronto no mesmo dia e o aparelho parece novo. Ótimo preço."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">AO</div>
+            <div>
+              <div class="testimonial-author-name">Amanda Oliveira</div>
+              <div class="testimonial-author-date">Tietê - SP</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-in-scroll">
+          <div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Comprei um iPhone 13 seminovo com eles. Bateria com excelente saúde e o aparelho está impecável. Loja nota dez em confiança."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">RC</div>
+            <div>
+              <div class="testimonial-author-name">Rodrigo Costa</div>
+              <div class="testimonial-author-date">Boituva - SP</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Coluna Sobre -->
+        <div class="footer-col footer-about">
+          <a href="index.html" class="footer-logo">
+            iPho<span>cell</span>
+          </a>
+          <p>"A evolução está em suas mãos." Conectando você ao ecossistema Apple com o melhor custo-benefício e segurança jurídica/técnica.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="#" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          </div>
+        </div>
+
+        <!-- Coluna Links -->
+        <div class="footer-col">
+          <h3>Links Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="catalogo.html">Catálogo de Aparelhos</a></li>
+            <li><a href="manutencao.html">Assistência Técnica</a></li>
+            <li><a href="sobre.html">Quem Somos</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna Serviços -->
+        <div class="footer-col">
+          <h3>Serviços Assistência</h3>
+          <ul class="footer-links">
+            <li><a href="manutencao.html">Troca de Tela iPhone</a></li>
+            <li><a href="manutencao.html">Substituição de Bateria</a></li>
+            <li><a href="manutencao.html">Reparo do Conector de Carga</a></li>
+            <li><a href="manutencao.html">Reparo em Câmeras</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna Contato -->
+        <div class="footer-col">
+          <h3>Fale Conosco</h3>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></i>
+              <p>R. Dr. Campos, 67 - Centro<br>Cerquilho - SP, CEP 18520-000</p>
+            </div>
+            <div class="footer-contact-item">
+              <i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></i>
+              <p>(15) 99999-9999</p>
+            </div>
+            <div class="footer-contact-item">
+              <i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></i>
+              <p>contato@iphocell.com.br</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2025 iPhocell. Todos os direitos reservados. CNPJ: 00.000.000/0001-00
+        </p>
+        <div class="footer-payments">
+          <span class="payment-badge">Pix</span>
+          <span class="payment-badge">Cartão</span>
+          <span class="payment-badge">Boleto</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

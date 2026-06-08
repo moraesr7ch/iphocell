@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detalhes do Produto iPhocell - Confira especificações completas, saúde da bateria, garantia oficial e parcele em até 12x sem juros.">
+  <title>Detalhes do Produto — iPhocell</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="header scrolled" id="main-header">
+    <div class="container">
+      <nav class="navbar" id="main-nav">
+        <!-- Logo -->
+        <a href="index.html" class="logo" id="nav-logo">
+          iPho<span>cell</span>
+        </a>
+
+        <!-- Links (Desktop) -->
+        <ul class="nav-links" id="nav-links-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="manutencao.html">Manutenção</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+        </ul>
+
+        <!-- Ações (Busca, Favoritos, Carrinho, Hambúrguer) -->
+        <div class="nav-actions" id="nav-actions-container">
+          <!-- Busca Rápida -->
+          <div class="search-container-bar" id="nav-search-bar">
+            <div class="search-input-wrapper">
+              <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg></i>
+              <input type="text" class="header-search-input" placeholder="Buscar no iPhocell..." aria-label="Buscar produtos">
+            </div>
+          </div>
+
+          <!-- Favoritos Link -->
+          <a href="catalogo.html" class="nav-btn" id="wishlist-trigger-btn" aria-label="Ver Favoritos">
+            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'></path></svg>
+            <span class="badge-counter wishlist-count" style="display: none;">0</span>
+          </a>
+
+          <!-- Carrinho Link -->
+          <button class="nav-btn open-cart-btn" id="cart-trigger-btn" aria-label="Abrir Sacola">
+            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'></path><line x1='3' y1='6' x2='21' y2='6'></line><path d='M16 10a4 4 0 0 1-8 0'></path></svg>
+            <span class="badge-counter cart-count" style="display: none;">0</span>
+          </button>
+
+          <!-- Toggle Mobile -->
+          <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PÁGINA DE DETALHES -->
+  <main class="container">
+    <div class="product-detail-container" id="product-detail-view">
+      
+      <!-- LADO ESQUERDO: GALERIA DE FOTOS -->
+      <section class="product-gallery">
+        <div class="gallery-main-image-wrapper" id="main-gallery-zoom">
+          <img src="" id="detail-main-img" alt="Carregando imagem...">
+        </div>
+        <div class="gallery-thumbnails">
+          <!-- Miniaturas injetadas por JS -->
+        </div>
+      </section>
+
+      <!-- LADO DIREITO: INFORMAÇÕES E COMPRA -->
+      <section class="product-info-panel" id="product-purchase-panel">
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumb">
+          <a href="index.html">Início</a> &gt; 
+          <a href="catalogo.html">Catálogo</a> &gt; 
+          <a href="#" id="breadcrumb-category-link">iPhone</a> &gt; 
+          <span id="breadcrumb-product-name" style="color: var(--text-dark); font-weight: 600;">...</span>
+        </nav>
+
+        <!-- Cabeçalho de Info -->
+        <div class="product-info-header">
+          <div class="product-badge-row">
+            <span class="badge-condicao" id="detail-cond-badge">...</span>
+            <span class="stock-status" id="detail-stock-status">...</span>
+          </div>
+          <h1 class="product-detail-name" id="detail-title">...</h1>
+          
+          <div class="product-rating-row">
+            <span class="rating-stars" aria-label="Avaliação 5 estrelas">★★★★★</span>
+            <span class="rating-count">(12 avaliações de compradores)</span>
+          </div>
+        </div>
+
+        <!-- Preço e Parcelas -->
+        <div class="product-detail-price-box">
+          <div class="detail-price-main" id="detail-price-val">R$ 0,00</div>
+          <div class="detail-price-installments" id="detail-price-installments">
+            ou em até <strong>12x de R$ 0,00</strong> sem juros
+          </div>
+        </div>
+
+        <!-- Seletor de Cores -->
+        <div class="selector-group">
+          <h3 class="selector-title">Cor</h3>
+          <div class="color-variant-list">
+            <!-- Círculo de cores clicáveis por JS -->
+          </div>
+        </div>
+
+        <!-- Seletor de Armazenamento -->
+        <div class="selector-group">
+          <h3 class="selector-title">Armazenamento</h3>
+          <div class="storage-variant-list">
+            <!-- Botões injetados por JS -->
+          </div>
+        </div>
+
+        <!-- Botões de Compra e Ação -->
+        <div class="product-detail-actions">
+          <button class="btn btn-primary btn-full" id="detail-buy-now">Comprar Agora</button>
+          <div class="product-detail-actions-row">
+            <button class="btn btn-outline" id="detail-add-to-cart">Adicionar ao Carrinho</button>
+            <button class="btn btn-whatsapp-ask" id="detail-ask-btn">Tirar Dúvidas</button>
+          </div>
+        </div>
+
+        <!-- Abas de Informações Adicionais -->
+        <div class="detail-info-tabs">
+          <nav class="tabs-nav">
+            <button class="tab-link active" data-tab="specs">Especificações</button>
+            <button class="tab-link" data-tab="garantia">Garantia</button>
+            <button class="tab-link" data-tab="entrega">Entrega</button>
+          </nav>
+          
+          <!-- Conteúdo Especificações -->
+          <div class="tab-content active" id="tab-specs">
+            <table class="specs-table">
+              <tbody>
+                <tr>
+                  <td class="specs-label">Processador / Chip</td>
+                  <td class="specs-val" id="spec-chip">...</td>
+                </tr>
+                <tr>
+                  <td class="specs-label">Câmera</td>
+                  <td class="specs-val" id="spec-camera">...</td>
+                </tr>
+                <tr>
+                  <td class="specs-label">Bateria</td>
+                  <td class="specs-val" id="spec-battery">...</td>
+                </tr>
+                <tr>
+                  <td class="specs-label">Tela</td>
+                  <td class="specs-val" id="spec-screen">...</td>
+                </tr>
+                <tr>
+                  <td class="specs-label">Sistema Operacional</td>
+                  <td class="specs-val" id="spec-os">...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Conteúdo Garantia -->
+          <div class="tab-content" id="tab-garantia">
+            <p>Todos os nossos aparelhos acompanham garantia contratual para sua total segurança:</p>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+              <li><strong>Novos e Lacrados:</strong> 1 ano de garantia oficial Apple a partir do momento da ativação do aparelho.</li>
+              <li><strong>Seminovos:</strong> 3 meses (90 dias) de garantia iPhocell cobrindo qualquer defeito funcional ou de hardware.</li>
+            </ul>
+          </div>
+
+          <!-- Conteúdo Entrega -->
+          <div class="tab-content" id="tab-entrega">
+            <p>Dispomos de métodos de entrega seguros e eficientes para a sua região:</p>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+              <li><strong>Retirada Física:</strong> Você pode retirar seu pedido diretamente em nossa loja localizada no Centro de Cerquilho - SP.</li>
+              <li><strong>Entrega Expressa:</strong> Serviço de motoboy para as cidades de Cerquilho, Tietê e Boituva.</li>
+              <li><strong>Envio Nacional:</strong> Enviamos via Correios (Sedex com seguro incluso) para todo o Brasil. Frete grátis em compras acima de R$ 500,00.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PRODUTOS RECOMENDADOS / RELACIONADOS -->
+    <section class="section" id="related-products-section" style="border-top: 1px solid var(--border-color); margin-top: 40px;">
+      <div class="section-header">
+        <h2 class="section-title">Você também pode gostar</h2>
+      </div>
+      <div class="related-products-grid products-grid-catalog">
+        <!-- Render dinâmico de relacionados -->
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Coluna Sobre -->
+        <div class="footer-col footer-about">
+          <a href="index.html" class="footer-logo">
+            iPho<span>cell</span>
+          </a>
+          <p>"A evolução está em suas mãos." Conectando você ao ecossistema Apple com o melhor custo-benefício e segurança jurídica/técnica.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram"><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='2' width='20' height='20' rx='5' ry='5'></rect><path d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'></path><line x1='17.5' y1='6.5' x2='17.51' y2='6.5'></line></svg></a>
+            <a href="#" class="social-link" aria-label="Facebook"><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z'></path></svg></a>
+          </div>
+        </div>
+
+        <!-- Coluna Links -->
+        <div class="footer-col">
+          <h3>Links Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="catalogo.html">Catálogo de Aparelhos</a></li>
+            <li><a href="manutencao.html">Assistência Técnica</a></li>
+            <li><a href="sobre.html">Quem Somos</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna Serviços -->
+        <div class="footer-col">
+          <h3>Serviços Assistência</h3>
+          <ul class="footer-links">
+            <li><a href="manutencao.html">Troca de Tela iPhone</a></li>
+            <li><a href="manutencao.html">Substituição de Bateria</a></li>
+            <li><a href="manutencao.html">Reparo do Conector de Carga</a></li>
+            <li><a href="manutencao.html">Reparo em Câmeras</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna Contato -->
+        <div class="footer-col">
+          <h3>Fale Conosco</h3>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'></path><circle cx='12' cy='10' r='3'></circle></svg></i>
+              <p>R. Dr. Campos, 67 - Centro<br>Cerquilho - SP, CEP 18520-000</p>
+            </div>
+            <div class="footer-contact-item">
+              <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'></path></svg></i>
+              <p>(15) 99999-9999</p>
+            </div>
+            <div class="footer-contact-item">
+              <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'></path><polyline points='22,6 12,13 2,6'></polyline></svg></i>
+              <p>contato@iphocell.com.br</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2025 iPhocell. Todos os direitos reservados. CNPJ: 00.000.000/0001-00
+        </p>
+        <div class="footer-payments">
+          <span class="payment-badge">Pix</span>
+          <span class="payment-badge">Cartão</span>
+          <span class="payment-badge">Boleto</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

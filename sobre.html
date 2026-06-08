@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sobre a iPhocell - Conheça nossa história, equipe especializada e valores de transparência no comércio de produtos Apple e assistência em Cerquilho.">
+  <title>Quem Somos — iPhocell</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="header scrolled" id="main-header">
+    <div class="container">
+      <nav class="navbar" id="main-nav">
+        <!-- Logo -->
+        <a href="index.html" class="logo" id="nav-logo">
+          iPho<span>cell</span>
+        </a>
+
+        <!-- Links (Desktop) -->
+        <ul class="nav-links" id="nav-links-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="manutencao.html">Manutenção</a></li>
+          <li><a href="sobre.html" class="active">Sobre Nós</a></li>
+        </ul>
+
+        <!-- Ações (Busca, Favoritos, Carrinho, Hambúrguer) -->
+        <div class="nav-actions" id="nav-actions-container">
+          <!-- Busca Rápida -->
+          <div class="search-container-bar" id="nav-search-bar">
+            <div class="search-input-wrapper">
+              <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg></i>
+              <input type="text" class="header-search-input" placeholder="Buscar no iPhocell..." aria-label="Buscar produtos">
+            </div>
+          </div>
+
+          <!-- Favoritos Link -->
+          <a href="catalogo.html" class="nav-btn" id="wishlist-trigger-btn" aria-label="Ver Favoritos">
+            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'></path></svg>
+            <span class="badge-counter wishlist-count" style="display: none;">0</span>
+          </a>
+
+          <!-- Carrinho Link -->
+          <button class="nav-btn open-cart-btn" id="cart-trigger-btn" aria-label="Abrir Sacola">
+            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'></path><line x1='3' y1='6' x2='21' y2='6'></line><path d='M16 10a4 4 0 0 1-8 0'></path></svg>
+            <span class="badge-counter cart-count" style="display: none;">0</span>
+          </button>
+
+          <!-- Toggle Mobile -->
+          <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HISTÓRIA / QUEM SOMOS -->
+  <main class="container" style="padding-top: 40px; padding-bottom: 80px;">
+    <section class="about-grid-content fade-in-scroll">
+      <div class="about-story-info">
+        <span class="section-subtitle">Nossa História</span>
+        <h2>Excelência no mundo Apple em Cerquilho</h2>
+        <p class="lead">Nascida com a missão de democratizar o acesso à tecnologia premium, a iPhocell tornou-se referência regional em produtos Apple novos, seminovos e assistência técnica avançada.</p>
+        <p>A iPhocell foi fundada em Cerquilho, interior de São Paulo, com um compromisso claro: entregar transparência total no comércio de celulares premium. Cada dispositivo seminovo que comercializamos passa por uma bateria de mais de 25 testes rigorosos de hardware e software, garantindo que você tenha a mesma experiência mágica de um produto novo, por uma fração do preço.</p>
+        <p>Além disso, nosso laboratório próprio é equipado com o que há de mais moderno em ferramentas de micro-soldagem e diagnóstico eletrônico, permitindo reparos de placas e componentes com precisão cirúrgica.</p>
+      </div>
+      <div class="about-story-image">
+        <img src="assets/images/iphocell.jpg" alt="Equipe de laboratório e loja física iPhocell">
+      </div>
+    </section>
+
+    <!-- NOSSOS VALORES -->
+    <section class="section" id="about-values" style="border-top: 1px solid var(--border-color); margin-top: 60px;">
+      <div class="section-header" style="justify-content: center; text-align: center; margin-bottom: 60px;">
+        <div class="section-title-wrapper">
+          <span class="section-subtitle">O que nos move</span>
+          <h2 class="section-title">Valores Inegociáveis</h2>
+        </div>
+      </div>
+
+      <div class="values-grid">
+        <!-- Qualidade -->
+        <div class="value-card fade-in-scroll">
+          <div class="value-card-icon">💎</div>
+          <h3>Qualidade Premium</h3>
+          <p>Trabalhamos exclusivamente com peças homologadas de alto padrão e produtos em estado de conservação impecável.</p>
+        </div>
+        <!-- Confiança -->
+        <div class="value-card fade-in-scroll">
+          <div class="value-card-icon">🤝</div>
+          <h3>Confiança e Transparência</h3>
+          <p>Fornecemos garantia de 90 dias a 1 ano por escrito em todas as operações de compra ou assistência.</p>
+        </div>
+        <!-- Especialização -->
+        <div class="value-card fade-in-scroll">
+          <div class="value-card-icon">🎓</div>
+          <h3>Especialização Apple</h3>
+          <p>Toda a nossa equipe técnica possui vasta experiência em arquitetura de hardware Apple para reparos consistentes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPE TÉCNICA -->
+    <section class="section" id="about-team" style="border-top: 1px solid var(--border-color);">
+      <div class="section-header" style="justify-content: center; text-align: center; margin-bottom: 60px;">
+        <div class="section-title-wrapper">
+          <span class="section-subtitle">Profissionais Certificados</span>
+          <h2 class="section-title">Conheça Nossos Especialistas</h2>
+        </div>
+      </div>
+
+      <div class="team-grid">
+        <!-- Membro 1 -->
+        <div class="team-member fade-in-scroll">
+          <div class="team-member-img">
+            <span style="font-size: 4rem;">🔧</span>
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Rodrigo Pinheiro</h3>
+            <p class="team-member-role">Técnico Fundador & Placas</p>
+          </div>
+        </div>
+        <!-- Membro 2 -->
+        <div class="team-member fade-in-scroll">
+          <div class="team-member-img">
+            <span style="font-size: 4rem;">📱</span>
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Ana Lúcia Bento</h3>
+            <p class="team-member-role">Suporte Técnico & Telas</p>
+          </div>
+        </div>
+        <!-- Membro 3 -->
+        <div class="team-member fade-in-scroll">
+          <div class="team-member-img">
+            <span style="font-size: 4rem;">💼</span>
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Carlos Eduardo</h3>
+            <p class="team-member-role">Consultor de Vendas Apple</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPA E LOCALIZAÇÃO -->
+    <section class="section" id="about-location" style="border-top: 1px solid var(--border-color);">
+      <div class="section-header">
+        <div class="section-title-wrapper">
+          <span class="section-subtitle">Venha nos visitar</span>
+          <h2 class="section-title">Nossa Localização Física</h2>
+        </div>
+      </div>
+
+      <div class="map-grid">
+        <div class="location-details">
+          <div class="location-item fade-in-scroll">
+            <div class="location-item-icon"><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'></path><circle cx='12' cy='10' r='3'></circle></svg></div>
+            <div>
+              <h4>Endereço Principal</h4>
+              <p>R. Dr. Campos, 67 - Centro, Cerquilho - SP, 18520-000</p>
+            </div>
+          </div>
+          <div class="location-item fade-in-scroll">
+            <div class="location-item-icon">🕒</div>
+            <div>
+              <h4>Horário de Funcionamento</h4>
+              <p>Segunda a Sexta: das 09h às 18h<br>Sábado: das 09h às 13h</p>
+            </div>
+          </div>
+          <div class="location-item fade-in-scroll">
+            <div class="location-item-icon">💬</div>
+            <div>
+              <h4>Central de Atendimento</h4>
+              <p>WhatsApp: (15) 99999-9999<br>Email: contato@iphocell.com.br</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Placeholder para o Iframe Seguro injetado via main.js -->
+        <div class="map-embed-placeholder fade-in-scroll">
+          <!-- Injetado por JavaScript -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Coluna Sobre -->
+        <div class="footer-col footer-about">
+          <a href="index.html" class="footer-logo">
+            iPho<span>cell</span>
+          </a>
+          <p>"A evolução está em suas mãos." Conectando você ao ecossistema Apple com o melhor custo-benefício e segurança jurídica/técnica.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram"><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='2' width='20' height='20' rx='5' ry='5'></rect><path d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'></path><line x1='17.5' y1='6.5' x2='17.51' y2='6.5'></line></svg></a>
+            <a href="#" class="social-link" aria-label="Facebook"><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z'></path></svg></a>
+          </div>
+        </div>
+
+        <!-- Coluna Links -->
+        <div class="footer-col">
+          <h3>Links Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="catalogo.html">Catálogo de Aparelhos</a></li>
+            <li><a href="manutencao.html">Assistência Técnica</a></li>
+            <li><a href="sobre.html">Quem Somos</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna Serviços -->
+        <div class="footer-col">
+          <h3>Serviços Assistência</h3>
+          <ul class="footer-links">
+            <li><a href="manutencao.html">Troca de Tela iPhone</a></li>
+            <li><a href="manutencao.html">Substituição de Bateria</a></li>
+            <li><a href="manutencao.html">Reparo do Conector de Carga</a></li>
+            <li><a href="manutencao.html">Reparo em Câmeras</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna Contato -->
+        <div class="footer-col">
+          <h3>Fale Conosco</h3>
+          <div class="footer-contact-item">
+            <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'></path><circle cx='12' cy='10' r='3'></circle></svg></i>
+            <p>R. Dr. Campos, 67 - Centro<br>Cerquilho - SP, CEP 18520-000</p>
+          </div>
+          <div class="footer-contact-item">
+            <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'></path></svg></i>
+            <p>(15) 99999-9999</p>
+          </div>
+          <div class="footer-contact-item">
+            <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'></path><polyline points='22,6 12,13 2,6'></polyline></svg></i>
+            <p>contato@iphocell.com.br</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2025 iPhocell. Todos os direitos reservados. CNPJ: 00.000.000/0001-00
+        </p>
+        <div class="footer-payments">
+          <span class="payment-badge">Pix</span>
+          <span class="payment-badge">Cartão</span>
+          <span class="payment-badge">Boleto</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

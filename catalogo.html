@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo iPhocell - Escolha entre iPhones, iPads, Apple Watches e acessórios novos, seminovos e lacrados com as melhores parcelas e garantia especializada.">
+  <title>Catálogo Completo — iPhocell</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="header scrolled" id="main-header">
+    <div class="container">
+      <nav class="navbar" id="main-nav">
+        <!-- Logo -->
+        <a href="index.html" class="logo" id="nav-logo">
+          iPho<span>cell</span>
+        </a>
+
+        <!-- Links (Desktop) -->
+        <ul class="nav-links" id="nav-links-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="catalogo.html" class="active">Catálogo</a></li>
+          <li><a href="manutencao.html">Manutenção</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+        </ul>
+
+        <!-- Ações (Busca, Favoritos, Carrinho, Hambúrguer) -->
+        <div class="nav-actions" id="nav-actions-container">
+          <!-- Busca Rápida -->
+          <div class="search-container-bar" id="nav-search-bar">
+            <div class="search-input-wrapper">
+              <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg></i>
+              <input type="text" class="header-search-input" placeholder="Buscar no iPhocell..." aria-label="Buscar produtos">
+            </div>
+          </div>
+
+          <!-- Favoritos Link -->
+          <a href="catalogo.html" class="nav-btn" id="wishlist-trigger-btn" aria-label="Ver Favoritos">
+            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'></path></svg>
+            <span class="badge-counter wishlist-count" style="display: none;">0</span>
+          </a>
+
+          <!-- Carrinho Link -->
+          <button class="nav-btn open-cart-btn" id="cart-trigger-btn" aria-label="Abrir Sacola">
+            <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'></path><line x1='3' y1='6' x2='21' y2='6'></line><path d='M16 10a4 4 0 0 1-8 0'></path></svg>
+            <span class="badge-counter cart-count" style="display: none;">0</span>
+          </button>
+
+          <!-- Toggle Mobile -->
+          <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SEÇÃO DE CATÁLOGO PRINCIPAL -->
+  <main class="container">
+    <div class="catalog-page-container">
+      
+      <!-- FILTROS LATERAIS (SIDEBAR) -->
+      <aside class="catalog-sidebar" id="catalog-sidebar-panel">
+        <!-- Categoria -->
+        <div class="filter-section">
+          <h3 class="filter-title">Categoria</h3>
+          <div class="category-filter-list">
+            <button class="category-filter-btn active" data-category="todos">Todos</button>
+            <button class="category-filter-btn" data-category="iphone">iPhone</button>
+            <button class="category-filter-btn" data-category="ipad">iPad</button>
+            <button class="category-filter-btn" data-category="apple watch">Apple Watch</button>
+            <button class="category-filter-btn" data-category="acessorios">Acessórios</button>
+          </div>
+        </div>
+
+        <!-- Condição -->
+        <div class="filter-section">
+          <h3 class="filter-title">Condição</h3>
+          <div class="checkbox-filter-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="condition-checkbox" value="novo"> Novo
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="condition-checkbox" value="seminovo"> Seminovo
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="condition-checkbox" value="lacrado"> Lacrado
+            </label>
+          </div>
+        </div>
+
+        <!-- Faixa de Preço -->
+        <div class="filter-section">
+          <h3 class="filter-title">Preço Máximo</h3>
+          <div class="price-range-wrapper">
+            <input type="range" class="price-slider-el" min="0" max="10000" step="100" value="10000" aria-label="Filtro de preço máximo">
+            <div class="price-slider-values">
+              <span>R$ 0</span>
+              <span class="price-max-val" style="font-weight: 700; color: var(--accent);">R$ 10.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modelos -->
+        <div class="filter-section">
+          <h3 class="filter-title">Modelo iPhone</h3>
+          <div class="checkbox-filter-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="model-checkbox" value="iPhone 11"> iPhone 11
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="model-checkbox" value="iPhone 12"> iPhone 12
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="model-checkbox" value="iPhone 13"> iPhone 13
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="model-checkbox" value="iPhone 14"> iPhone 14
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="model-checkbox" value="iPhone 15"> iPhone 15
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" class="model-checkbox" value="iPhone 16"> iPhone 16
+            </label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- LISTAGEM E BARRA TOP (CONTEÚDO) -->
+      <section class="catalog-content">
+        <!-- Top Bar -->
+        <div class="catalog-topbar" id="catalog-top-actions">
+          <div class="catalog-results-count">
+            Mostrando <span class="catalog-results-count-val" style="font-weight: 700;">12</span> produtos
+          </div>
+          
+          <!-- Filtro de Busca Interna no Catálogo -->
+          <div style="flex: 1; max-width: 250px;">
+            <input type="text" class="catalog-top-search-input" placeholder="Filtrar por nome..." aria-label="Filtrar por nome" style="padding: 8px 12px; border: 1px solid var(--border-color); border-radius: var(--border-radius-button); font-family: var(--font-family); font-size: 0.85rem; width: 100%;">
+          </div>
+
+          <div class="catalog-sorting-actions">
+            <!-- Ordenação -->
+            <div class="sort-select-wrapper">
+              <select id="catalog-sort-select" aria-label="Ordenar produtos">
+                <option value="menor-preco">Menor Preço</option>
+                <option value="maior-preco">Maior Preço</option>
+                <option value="mais-recente">Mais Recente</option>
+              </select>
+            </div>
+
+            <!-- Alternador Grid / Lista -->
+            <div class="grid-list-toggle">
+              <button class="toggle-layout-btn btn-view-grid active" aria-label="Visualização em Grid">田</button>
+              <button class="toggle-layout-btn btn-view-list" aria-label="Visualização em Lista">☰</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grade de Produtos -->
+        <div class="products-grid-catalog" id="catalog-grid-panel">
+          <!-- Injetado dinamicamente via JavaScript -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Coluna Sobre -->
+        <div class="footer-col footer-about">
+          <a href="index.html" class="footer-logo">
+            iPho<span>cell</span>
+          </a>
+          <p>"A evolução está em suas mãos." Conectando você ao ecossistema Apple com o melhor custo-benefício e segurança jurídica/técnica.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram"><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='2' width='20' height='20' rx='5' ry='5'></rect><path d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'></path><line x1='17.5' y1='6.5' x2='17.51' y2='6.5'></line></svg></a>
+            <a href="#" class="social-link" aria-label="Facebook"><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z'></path></svg></a>
+          </div>
+        </div>
+
+        <!-- Coluna Links -->
+        <div class="footer-col">
+          <h3>Links Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="catalogo.html">Catálogo de Aparelhos</a></li>
+            <li><a href="manutencao.html">Assistência Técnica</a></li>
+            <li><a href="sobre.html">Quem Somos</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna Serviços -->
+        <div class="footer-col">
+          <h3>Serviços Assistência</h3>
+          <ul class="footer-links">
+            <li><a href="manutencao.html">Troca de Tela iPhone</a></li>
+            <li><a href="manutencao.html">Substituição de Bateria</a></li>
+            <li><a href="manutencao.html">Reparo do Conector de Carga</a></li>
+            <li><a href="manutencao.html">Reparo em Câmeras</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna Contato -->
+        <div class="footer-col">
+          <h3>Fale Conosco</h3>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'></path><circle cx='12' cy='10' r='3'></circle></svg></i>
+              <p>R. Dr. Campos, 67 - Centro<br>Cerquilho - SP, CEP 18520-000</p>
+            </div>
+            <div class="footer-contact-item">
+              <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'></path></svg></i>
+              <p>(15) 99999-9999</p>
+            </div>
+            <div class="footer-contact-item">
+              <i><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'></path><polyline points='22,6 12,13 2,6'></polyline></svg></i>
+              <p>contato@iphocell.com.br</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2025 iPhocell. Todos os direitos reservados. CNPJ: 00.000.000/0001-00
+        </p>
+        <div class="footer-payments">
+          <span class="payment-badge">Pix</span>
+          <span class="payment-badge">Cartão</span>
+          <span class="payment-badge">Boleto</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

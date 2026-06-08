@@ -1,0 +1,44 @@
+:root {
+  /* Cores Principais - Light Mode Monocromático */
+  --primary: #0A0A0A;
+  --bg-dark: #0A0A0A;
+  --bg-light: #FFFFFF;
+  --bg-secondary: #F2F2F2;
+  --accent: #0A0A0A;
+  --accent-hover: #333333;
+  --surface-color: #FFFFFF;
+  
+  /* Cores de Texto */
+  --text-dark: #0A0A0A;
+  --text-light: #FFFFFF;
+  --text-muted: #666666;
+  
+  /* Cores de Badges (Tons de cinza) */
+  --badge-novo: #0A0A0A;
+  --badge-seminovo: #666666;
+  --badge-lacrado: #333333;
+  
+  /* Cores do Carrinho e Alertas (Leve destaque sem ferir o minimalismo) */
+  --error: #FF3B30;
+  --error-bg: #FFE5E5;
+  --success: #34C759;
+  --success-bg: #EAF9EE;
+  
+  /* Bordas e Sombras */
+  --border-color: #E5E5EA;
+  --shadow-subtle: 0 4px 30px rgba(0, 0, 0, 0.03);
+  --shadow-medium: 0 10px 40px rgba(0, 0, 0, 0.08);
+  --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.15);
+  
+  /* Fontes e Tipografia */
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Transições e Espaçamentos */
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --border-radius-card: 16px;
+  --border-radius-button: 10px;
+  --border-radius-badge: 50px;
+  
+  /* Tamanho de Contêiner */
+  --max-width: 1280px;
+}
