@@ -20,7 +20,7 @@
       <nav class="navbar" id="main-nav">
         <!-- Logo -->
         <a href="index.html" class="logo" id="nav-logo">
-          iPho<span>cell</span>
+        <span>iPhocell</span>
         </a>
 
         <!-- Links (Desktop) -->
@@ -64,22 +64,32 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION CINEMATOGRÁFICO -->
   <section class="hero" id="hero-section">
-    <div class="container">
-      <div class="hero-content fade-in-scroll visible">
-        <span class="hero-tagline">iPhocell Store</span>
-        <h1 class="hero-title">A evolução está em suas mãos</h1>
-        <p class="hero-subtitle">
-          Descubra a linha completa de iPhone, iPad, Apple Watch e MacBook. Novos, seminovos e lacrados com garantia e suporte premium.
-        </p>
-        <div class="hero-actions">
-          <a href="catalogo.html" class="btn btn-primary">Ver Produtos</a>
-          <a href="https://api.whatsapp.com/send?phone=5515999999999&text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20iPhocell%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Falar no WhatsApp</a>
-        </div>
+    <!-- Camada 1: Céu (Estático) -->
+    <img class="hero-layer hero-sky" src="assets/images/sky.png" alt="Céu Claro" loading="eager">
+    
+    <!-- Camada 2: Nuvens (Derivação suave para a direita) -->
+    <img class="hero-layer hero-clouds" src="assets/images/clouds.png" alt="Nuvens Flutuantes" loading="eager">
+    
+    <!-- Camada 3: Gramado (Balanço horizontal sutil) -->
+    <img class="hero-layer hero-grass" src="assets/images/grass.png" alt="Colina Verdejante" loading="eager">
+    
+    <!-- Camada 4: Logotipo Apple 3D Neon (Flutuação, rotação e pulso de brilho) -->
+    <div class="apple-wrapper">
+      <div class="apple-float">
+        <img class="apple-img" src="assets/images/apple.png" alt="Logotipo Apple 3D Glow" loading="eager">
       </div>
-      <div class="hero-bg-graphic">
-        <img src="assets/images/iphocell.png" alt="Showcase de aparelhos Apple iPhocell">
+    </div>
+    
+    <!-- Overlay de Texto da Loja -->
+    <div class="hero-overlay-container">
+      <div class="container">
+        <div class="hero-overlay">
+          <h1 class="hero-overlay-title">A evolução está em suas mãos</h1>
+          <p class="hero-overlay-subtext">iPhone • iPad • Apple Watch • MacBook</p>
+          <a href="catalogo.html" class="hero-overlay-btn">Ver Produtos</a>
+        </div>
       </div>
     </div>
   </section>

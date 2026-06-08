@@ -175,7 +175,7 @@ img {
 }
 
 .header:not(.scrolled) {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: transparent;
   border-bottom: 1px solid transparent;
 }
 
@@ -737,74 +737,196 @@ img {
    7. SECÇÕES DA PÁGINA HOME (`index.html`)
    ========================================================================== */
 /* Hero Section */
+/* Hero Cinematic Section */
 .hero {
   position: relative;
-  width: 100%;
-  min-height: calc(100vh - 64px);
-  background-color: var(--bg-light);
-  display: flex;
-  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin-top: -64px;
   overflow: hidden;
-  padding: 60px 0;
-}
-.hero-content {
-  max-width: 680px;
-  z-index: 2;
-}
-.hero-tagline {
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--accent);
-  margin-bottom: 20px;
-}
-.hero-title {
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  margin-bottom: 24px;
-  color: var(--text-dark);
-}
-.hero-subtitle {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--text-muted);
-  line-height: 1.4;
-  margin-bottom: 40px;
-  letter-spacing: -0.01em;
-}
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.hero-bg-graphic {
-  position: absolute;
-  right: -5%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 55%;
-  height: auto;
-  max-width: 800px;
-  opacity: 0.95;
-  z-index: 1;
-  pointer-events: none;
-}
-.hero-bg-graphic img {
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.12));
-  animation: float-iphone 6s ease-in-out infinite;
+  background-color: #E0F2FE; /* Fallback de céu */
 }
 
-@keyframes float-iphone {
+/* Camadas do Hero */
+.hero-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  display: block;
+}
+
+/* Camada 1: Sky */
+.hero-sky {
+  z-index: 1;
+}
+
+/* Camada 2: Clouds */
+.hero-clouds {
+  z-index: 2;
+  animation: cloudsDrift 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Camada 3: Grass */
+.hero-grass {
+  z-index: 3;
+  animation: grassSway 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Camada 4: Apple Logo Wrapper */
+.apple-wrapper {
+  position: absolute;
+  right: 20%;
+  top: 12%;
+  width: 28%;
+  max-width: 420px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.apple-float {
+  animation: appleFloat 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.apple-img {
+  width: 100%;
+  height: auto;
+  transform-origin: center bottom;
+  animation: appleRotate 7s ease-in-out infinite, appleGlow 3s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+/* Overlay de Texto */
+.hero-overlay-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 80px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  pointer-events: auto;
+}
+
+.hero-overlay-title {
+  color: #FFFFFF;
+  font-family: var(--font-family);
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.3s;
+  will-change: transform, opacity;
+}
+
+.hero-overlay-subtext {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.6s;
+  will-change: transform, opacity;
+}
+
+.hero-overlay-btn {
+  background-color: #FFFFFF;
+  color: #0A0A0A;
+  border-radius: 50px;
+  padding: 14px 36px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid #FFFFFF;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.9s;
+  will-change: transform, opacity;
+}
+
+.hero-overlay-btn:hover {
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  border-color: #0A0A0A;
+}
+
+/* Keyframes */
+@keyframes cloudsDrift {
+  0%, 100% {
+    transform: scale(1.08) translateX(0);
+  }
+  50% {
+    transform: scale(1.08) translateX(6px);
+  }
+}
+
+@keyframes grassSway {
+  0%, 100% {
+    transform: scale(1.04) translateX(0);
+  }
+  50% {
+    transform: scale(1.04) translateX(8px);
+  }
+}
+
+@keyframes appleFloat {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes appleRotate {
+  0%, 100% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.5deg);
+  }
+}
+
+@keyframes appleGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.9));
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -2250,23 +2372,13 @@ img {
 
 /* Breakpoint: Tablets (<= 1024px) */
 @media (max-width: 1024px) {
-  .hero {
-    min-height: auto;
-    padding: 100px 0;
-    text-align: center;
+  .apple-wrapper {
+    right: 12%;
+    top: 15%;
+    width: 32%;
   }
-  .hero-content {
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .hero-actions {
-    justify-content: center;
-  }
-  .hero-bg-graphic {
-    display: none;
+  .hero-overlay-title {
+    font-size: 42px;
   }
   
   .badges-grid {
@@ -2325,11 +2437,73 @@ img {
     display: flex;
   }
   
-  .hero-title {
-    font-size: 2.8rem;
+  .hero {
+    height: 100vh;
   }
-  .hero-subtitle {
-    font-size: 1.15rem;
+  .apple-wrapper {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    top: 18%;
+    width: 55%;
+    max-width: 270px;
+  }
+  .apple-img {
+    transform-origin: center bottom;
+  }
+  .hero-overlay-container {
+    padding-bottom: 60px;
+  }
+  .hero-overlay {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+  .hero-overlay-title {
+    font-size: 32px;
+  }
+  .hero-overlay-subtext {
+    font-size: 16px;
+  }
+
+  /* Barra de busca inline ultra compacta que expande no foco */
+  .nav-actions {
+    gap: 8px; /* Espaço menor entre botões no mobile */
+  }
+  .search-container-bar {
+    max-width: 40px;
+    flex: 0 0 40px;
+    transition: max-width 0.3s cubic-bezier(0.25, 1, 0.5, 1), flex-basis 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .search-container-bar:focus-within {
+    max-width: 150px;
+    flex: 0 0 150px;
+  }
+  .search-input-wrapper input {
+    height: 38px;
+    padding: 0;
+    text-indent: -9999px;
+    cursor: pointer;
+  }
+  .search-input-wrapper input::placeholder {
+    color: transparent;
+  }
+  .search-container-bar:focus-within .search-input-wrapper input {
+    text-indent: 0;
+    padding: 10px 12px 10px 36px;
+    cursor: text;
+  }
+  .search-container-bar:focus-within .search-input-wrapper input::placeholder {
+    color: var(--text-muted);
+  }
+  .search-input-wrapper i {
+    left: 50%;
+    transform: translateX(-50%);
+    transition: left 0.3s ease, transform 0.3s ease;
+  }
+  .search-container-bar:focus-within .search-input-wrapper i {
+    left: 14px;
+    transform: translateX(0);
   }
   
   .section-title {
