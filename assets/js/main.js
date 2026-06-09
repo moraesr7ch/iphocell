@@ -888,7 +888,7 @@ function initWordAnimations() {
   // Executa a animação da Hero na carga da página
   if (heroAnimation) {
     setTimeout(() => {
-      heroAnimation.play(200, 70);
+      heroAnimation.play(200, 110);
     }, 150);
   }
 
@@ -898,7 +898,7 @@ function initWordAnimations() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           setTimeout(() => {
-            assistanceAnimation.play(100, 70);
+            assistanceAnimation.play(100, 110);
           }, 100);
           observer.unobserve(entry.target);
         }

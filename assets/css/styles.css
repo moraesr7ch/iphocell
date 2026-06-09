@@ -2263,7 +2263,7 @@ img {
   gap: 6px;
 }
 .footer-logo span {
-  color: var(--accent);
+  color: #8E8E93; /* Cinza premium Apple para destaque e legibilidade sobre o fundo preto */
 }
 .footer-about p {
   font-size: 0.85rem;
