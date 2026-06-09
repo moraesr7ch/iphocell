@@ -745,6 +745,12 @@ img {
   margin-top: -64px;
   overflow: hidden;
   background-color: #E0F2FE; /* Fallback de céu */
+  background-image: url('../images/sky.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center 0px;
+  will-change: background-position;
 }
 
 /* Camadas do Hero */
@@ -763,6 +769,7 @@ img {
 /* Camada 1: Sky */
 .hero-sky {
   z-index: 1;
+  display: none;
 }
 
 /* Camada 2: Clouds */
@@ -2432,6 +2439,7 @@ img {
   
   .hero {
     height: 100vh;
+    background-position: center center;
   }
   .apple-wrapper {
     left: 50%;
@@ -2553,4 +2561,54 @@ img {
 @keyframes heroBrightness {
   0%, 100% { filter: brightness(1) saturate(1); }
   50%       { filter: brightness(1.08) saturate(1.15); }
+}
+
+/* Sombra Estática da Maçã na Grama */
+.apple-shadow {
+  position: absolute;
+  right: 20%;
+  bottom: 22%;
+  width: 28%;
+  max-width: 420px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 3.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.apple-shadow::after {
+  content: "";
+  width: 55%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 50%;
+  filter: blur(14px);
+}
+
+@media (max-width: 1024px) {
+  .apple-shadow {
+    right: 12%;
+    width: 32%;
+    bottom: 25%;
+    height: 20px;
+  }
+  .apple-shadow::after {
+    filter: blur(11px);
+  }
+}
+
+@media (max-width: 768px) {
+  .apple-shadow {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    bottom: 49%;
+    width: 55%;
+    max-width: 270px;
+    height: 18px;
+  }
+  .apple-shadow::after {
+    filter: blur(10px);
+  }
 }
