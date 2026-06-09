@@ -1,6 +1,21 @@
 // Arquivo principal de interações e lógica de páginas - iPhocell
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Inicialização do Lenis Smooth Scroll
+  if (typeof Lenis !== 'undefined') {
+    window.lenis = new Lenis({
+      duration: 1.2,
+      lerp: 0.1,
+      smoothWheel: true
+    });
+
+    function raf(time) {
+      window.lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }
+
   initGlobalFeatures();
   
   // Detectar em qual página estamos e carregar a lógica específica
@@ -30,13 +45,23 @@ function initGlobalFeatures() {
   // Controle de Rolagem da Navbar
   const header = document.querySelector('.header');
   if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
+    if (window.lenis) {
+      window.lenis.on('scroll', () => {
+        if (window.scrollY > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    } else {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
   }
 
   // Menu Mobile (Hambúrguer)
