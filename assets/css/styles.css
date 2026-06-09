@@ -855,10 +855,6 @@ img {
   line-height: 1.15;
   letter-spacing: -0.02em;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.3s;
   will-change: transform, opacity;
 }
 
@@ -2638,29 +2634,48 @@ img {
   }
 }
 
+/* Classes utilitárias para animação de entrada de palavras via JS */
+.js-enabled .word-animate-target {
+  opacity: 0;
+}
+
+.word-animate-ready {
+  opacity: 1 !important;
+}
+
+.animate-word-span {
+  display: inline-block;
+  will-change: opacity, transform;
+}
+
 /* ==========================================================================
-   SEÇÃO DE ASSISTÊNCIA TÉCNICA - ESTILO APPLE
+   SEÇÃO DE ASSISTÊNCIA TÉCNICA - ESTILO APPLE (FUNDO PRETO & DUAS COLUNAS)
    ========================================================================== */
 .section-assistance-apple {
-  background-color: #FFFFFF;
-  padding: 100px 0;
+  background-color: #0A0A0A;
+  padding: 120px 0 220px 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .assistance-apple-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 900px;
+  max-width: var(--max-width);
+  width: 100%;
 }
 
-.assistance-apple-text-header {
-  margin-bottom: 48px;
-  max-width: 680px;
+.assistance-apple-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.assistance-apple-left {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .assistance-apple-tag {
@@ -2669,59 +2684,124 @@ img {
   letter-spacing: 0.12em;
   color: #8E8E93;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .assistance-apple-title {
   font-size: 46px;
   font-weight: 800;
   line-height: 1.15;
-  color: #1D1D1F;
+  color: #FFFFFF;
   letter-spacing: -0.03em;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 
 .assistance-apple-title .highlight-text {
-  color: var(--accent);
+  color: #8E8E93; /* Cinza premium da Apple para contraste e destaque no fundo preto */
 }
 
 .assistance-apple-subtitle {
   font-size: 1.15rem;
-  line-height: 1.5;
-  color: #6E6E73;
+  line-height: 1.6;
+  color: #A1A1A6;
   font-weight: 400;
+  margin-bottom: 36px;
 }
 
-.assistance-apple-banner-wrapper {
+/* Animação 3D do Celular Quebrado para Consertado */
+.phone-animation-scene {
+  perspective: 1500px;
   width: 100%;
-  max-width: 800px;
-  margin-bottom: 40px;
-  border-radius: 20px;
+  max-width: 380px; /* Aumentado de 320px para maior visibilidade */
+  height: 620px;    /* Aumentado de 520px para maior imponência */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-animation-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  will-change: transform;
+  transform: rotateY(0deg) scale(1);
+}
+
+/* Estado Consertado aplicado via classe JS */
+.phone-animation-card.state-fixed {
+  transform: rotateY(180deg) scale(1);
+}
+
+.phone-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 40px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.assistance-apple-banner-img {
+.phone-face img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   display: block;
-  object-fit: cover;
+}
+
+.phone-face-front {
+  background: transparent;
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.phone-face-back {
+  background: transparent;
+  transform: rotateY(180deg);
 }
 
 .assistance-apple-cta-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .assistance-apple-btn {
   padding: 16px 36px;
   font-size: 1rem;
   font-weight: 600;
+  background-color: #FFFFFF !important;
+  color: #0A0A0A !important;
+  border: none !important;
   transition: all 0.3s ease;
 }
 
+.assistance-apple-btn:hover {
+  background-color: #E5E5EA !important;
+  color: #0A0A0A !important;
+  transform: translateY(-2px);
+}
+
 /* Responsividade do Banner de Assistência */
+@media (max-width: 991px) {
+  .assistance-apple-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+  .assistance-apple-left {
+    align-items: center;
+    text-align: center;
+  }
+  .assistance-apple-cta-wrapper {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   .section-assistance-apple {
     padding: 60px 0;
@@ -2731,12 +2811,9 @@ img {
   }
   .assistance-apple-subtitle {
     font-size: 1rem;
+    margin-bottom: 24px;
   }
   .assistance-apple-banner-wrapper {
     border-radius: 12px;
-    margin-bottom: 30px;
-    padding: 0 10px;
-    box-shadow: none;
-    border: none;
   }
 }

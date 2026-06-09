@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof Lenis !== 'undefined') {
     window.lenis = new Lenis({
       duration: 1.2,
-      lerp: 0.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true
     });
 
@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Animações ao rolar a página
   initScrollAnimations();
+
+  // Animações de palavras de entrada
+  initWordAnimations();
 });
 
 /* ==========================================================================
@@ -195,6 +198,42 @@ function initHomePage() {
   // Filtrar apenas iPhones mais recentes (Destaques)
   const featuredModels = ["iPhone 13", "iPhone 14", "iPhone 15", "iPhone 16"];
   const featured = products.filter(p => featuredModels.includes(p.model));
+
+  // Inicializa o Flip 3D do celular quebrado para consertado em loop contínuo
+  const assistanceSection = document.getElementById('assistance-premium-section');
+  const flipCard = document.getElementById('phone-flip-card');
+  if (assistanceSection && flipCard) {
+    const phoneObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Inicia o loop infinito após 2 segundos no viewport
+          setTimeout(() => {
+            runPhoneLoop();
+          }, 2000);
+          phoneObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.2
+    });
+    phoneObserver.observe(assistanceSection);
+
+    function runPhoneLoop() {
+      // Passo 1: Gira para exibir o celular consertado (verso do card)
+      flipCard.classList.add('state-fixed');
+      
+      // Passo 2: Mantém consertado por 4.5 segundos (1.6s transição + 2.9s exibição) e depois volta para o quebrado
+      setTimeout(() => {
+        flipCard.classList.remove('state-fixed');
+        
+        // Passo 3: Mantém quebrado por 3.5 segundos (1.6s transição + 1.9s exibição) e repete o loop
+        setTimeout(() => {
+          runPhoneLoop();
+        }, 3500);
+      }, 4500);
+    }
+  }
 
   let html = '';
   featured.forEach(product => {
@@ -786,3 +825,103 @@ function initAboutPage() {
     `;
   }
 }
+
+/* ==========================================================================
+   8. ANIMAÇÕES DE ENTRADA PALAVRA POR PALAVRA (EFEITO APPLE STAGGER)
+   ========================================================================== */
+function initWordAnimations() {
+  const heroTitle = document.querySelector('.hero-overlay-title');
+  const assistanceTitle = document.querySelector('.assistance-apple-title');
+
+  // Garante que os elementos ganham a classe de animação caso não estejam no HTML
+  if (heroTitle) heroTitle.classList.add('word-animate-target');
+  if (assistanceTitle) assistanceTitle.classList.add('word-animate-target');
+
+  // Prepara o elemento dividindo seu texto em spans individuais recursivamente, mantendo tags internas (ex: highlights)
+  function prepareElement(element) {
+    if (!element) return null;
+    const wordSpans = [];
+
+    function processNode(node) {
+      if (node.nodeType === 3) { // Text Node
+        const text = node.nodeValue;
+        // Divide o texto por espaços em branco mantendo-os no array final para não alterar o espaçamento
+        const parts = text.split(/(\s+)/);
+        const fragment = document.createDocumentFragment();
+
+        parts.forEach(part => {
+          if (part.trim() === '') {
+            fragment.appendChild(document.createTextNode(part));
+          } else {
+            const span = document.createElement('span');
+            span.className = 'animate-word-span';
+            span.textContent = part;
+            
+            // Estilização inline para opacidade e movimento inicial
+            span.style.display = 'inline-block';
+            span.style.opacity = '0';
+            span.style.transform = 'translateY(15px)';
+            span.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+            
+            fragment.appendChild(span);
+            wordSpans.push(span);
+          }
+        });
+
+        node.parentNode.replaceChild(fragment, node);
+      } else if (node.nodeType === 1) { // Element Node (como spans de destaque)
+        const children = Array.from(node.childNodes);
+        children.forEach(child => processNode(child));
+      }
+    }
+
+    const originalChildren = Array.from(element.childNodes);
+    originalChildren.forEach(child => processNode(child));
+
+    // Ativa a visibilidade do container principal e deixa que os spans individuais controlem a opacidade
+    element.classList.remove('word-animate-target');
+    element.classList.add('word-animate-ready');
+
+    return {
+      play: (baseDelay = 100, staggerInterval = 80) => {
+        wordSpans.forEach((span, index) => {
+          setTimeout(() => {
+            span.style.opacity = '1';
+            span.style.transform = 'translateY(0)';
+          }, baseDelay + index * staggerInterval);
+        });
+      }
+    };
+  }
+
+  // Prepara as animações
+  const heroAnimation = prepareElement(heroTitle);
+  const assistanceAnimation = prepareElement(assistanceTitle);
+
+  // Executa a animação da Hero na carga da página
+  if (heroAnimation) {
+    setTimeout(() => {
+      heroAnimation.play(200, 70);
+    }, 150);
+  }
+
+  // Executa a animação da seção de assistência ao entrar no viewport (Intersection Observer)
+  if (assistanceAnimation && assistanceTitle) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            assistanceAnimation.play(100, 70);
+          }, 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    observer.observe(assistanceTitle);
+  }
+}
+
