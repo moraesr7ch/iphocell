@@ -2557,10 +2557,18 @@ img {
   }
 }
 
-/* Efeito de Respiração de Brilho na Maçã (Ajuste de Brilho/Saturação) */
+/* Efeito de Respiração de Brilho na Maçã (Ajuste de Brilho/Saturação e Brilho Branco) */
 @keyframes heroBrightness {
-  0%, 100% { filter: brightness(1) saturate(1); }
-  50%       { filter: brightness(1.08) saturate(1.15); }
+  0%, 100% {
+    filter: brightness(1) saturate(1) 
+            drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)) 
+            drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+  }
+  50% {
+    filter: brightness(1.08) saturate(1.2) 
+            drop-shadow(0 0 25px rgba(255, 255, 255, 0.8)) 
+            drop-shadow(0 0 45px rgba(255, 255, 255, 0.5));
+  }
 }
 
 /* Sombra Estática da Maçã na Grama */
