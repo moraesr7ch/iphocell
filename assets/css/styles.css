@@ -799,7 +799,7 @@ img {
   width: 100%;
   height: auto;
   transform-origin: center bottom;
-  animation: appleRotate 7s ease-in-out infinite, appleGlow 3s ease-in-out infinite;
+  animation: appleRotate 7s ease-in-out infinite, heroBrightness 3.5s ease-in-out infinite;
   will-change: transform, filter;
 }
 
@@ -862,7 +862,6 @@ img {
   text-decoration: none;
   display: inline-block;
   border: 2px solid #FFFFFF;
-  margin-top: 16px;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
   opacity: 0;
@@ -915,14 +914,7 @@ img {
   }
 }
 
-@keyframes appleGlow {
-  0%, 100% {
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
-  }
-  50% {
-    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.9));
-  }
-}
+
 
 @keyframes fadeInUp {
   to {
@@ -2555,4 +2547,10 @@ img {
   .product-card {
     width: 100%;
   }
+}
+
+/* Efeito de Respiração de Brilho na Maçã (Ajuste de Brilho/Saturação) */
+@keyframes heroBrightness {
+  0%, 100% { filter: brightness(1) saturate(1); }
+  50%       { filter: brightness(1.08) saturate(1.15); }
 }
