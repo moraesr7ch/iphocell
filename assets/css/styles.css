@@ -198,6 +198,23 @@ img {
 .logo span {
   color: var(--accent);
 }
+.logo-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  color: var(--primary) !important;
+}
+.logo-brand .logo-accent {
+  color: var(--accent) !important;
+}
+.logo-apple-icon {
+  height: 0.82em;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.5px;
+  transform: translateY(-1px);
+}
 
 .nav-links {
   display: flex;
