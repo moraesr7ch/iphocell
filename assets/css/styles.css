@@ -2648,6 +2648,30 @@ img {
   will-change: opacity, transform;
 }
 
+/* Efeito Sticky Scroll Stack (Gaveta) no Desktop */
+@media (min-width: 992px) {
+  .sticky-stack-container {
+    position: relative;
+    background-color: #0A0A0A; /* Fundo preto sob as bordas superiores arredondadas */
+    overflow: visible;
+  }
+
+  .section-assistance-apple {
+    position: sticky;
+    top: 64px; /* Fixa logo abaixo da navbar */
+    z-index: 1; /* Fica abaixo da seção de produtos */
+  }
+
+  #featured-products-section {
+    position: relative;
+    z-index: 5; /* Fica sobre a seção de assistência */
+    background-color: var(--bg-light); /* Fundo branco opaco */
+    border-top-left-radius: 40px; /* Efeito gaveta */
+    border-top-right-radius: 40px;
+    box-shadow: 0 -20px 45px rgba(0, 0, 0, 0.12); /* Sombra para marcar profundidade */
+  }
+}
+
 /* ==========================================================================
    SEÇÃO DE ASSISTÊNCIA TÉCNICA - ESTILO APPLE (FUNDO PRETO & DUAS COLUNAS)
    ========================================================================== */
