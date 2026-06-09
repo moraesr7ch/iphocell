@@ -340,6 +340,19 @@ function initHomePage() {
     
     accessoriesContainer.innerHTML = accessoriesHtml;
   }
+
+  // Efeito de scroll parallax cinematográfico no background do Hero (apenas para desktop)
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    if (window.innerWidth > 768) {
+      window.addEventListener('scroll', () => {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          hero.style.backgroundPositionY = scrollY * 0.5 + 'px';
+        });
+      });
+    }
+  }
 }
 
 /* ==========================================================================
