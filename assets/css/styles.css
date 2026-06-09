@@ -2596,13 +2596,21 @@ img {
     z-index: 1; /* Fica abaixo da seção de produtos */
   }
 
-  #featured-products-section {
+  #featured-products-section,
+  #featured-accessories-section {
     position: relative;
     z-index: 5; /* Fica sobre a seção de assistência */
     background-color: var(--bg-light); /* Fundo branco opaco */
+  }
+
+  #featured-products-section {
     border-top-left-radius: 40px; /* Efeito gaveta */
     border-top-right-radius: 40px;
     box-shadow: 0 -20px 45px rgba(0, 0, 0, 0.12); /* Sombra para marcar profundidade */
+  }
+
+  #featured-accessories-section {
+    padding-top: 0;
   }
 }
 
@@ -2774,4 +2782,9 @@ img {
   .assistance-apple-banner-wrapper {
     border-radius: 12px;
   }
+}
+
+#featured-accessories-section {
+  padding-top: 0;
+  background-color: var(--bg-light);
 }

@@ -643,5 +643,120 @@ const products = [
       screen: "N/A",
       os: "Compatível com iPhone 15"
     }
+  },
+  {
+    id: "carregador-20w-apple",
+    name: "Carregador USB-C de 20W Apple",
+    model: "Acessórios",
+    condition: "novo",
+    price: 150.00,
+    installments: 6,
+    storage: "N/A",
+    color: "Branco",
+    colorHex: "#FFFFFF",
+    category: "acessorios",
+    images: ["assets/images/iphocell.png", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: true,
+    description: "O carregador USB-C de 20W da Apple é rápido e eficiente, ideal para usar em casa, no trabalho ou onde você estiver. Compatível com qualquer dispositivo com porta USB-C.",
+    specs: {
+      chip: "N/A",
+      camera: "N/A",
+      battery: "N/A",
+      screen: "N/A",
+      os: "Conexão USB-C"
+    }
+  },
+  {
+    id: "cabo-usbc-lightning-apple",
+    name: "Cabo USB-C para Lightning (1m) Apple",
+    model: "Acessórios",
+    condition: "novo",
+    price: 80.00,
+    installments: 4,
+    storage: "N/A",
+    color: "Branco",
+    colorHex: "#FFFFFF",
+    category: "acessorios",
+    images: ["assets/images/iphocell.png", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: true,
+    description: "Conecte seu iPhone, iPad ou iPod com conector Lightning ao USB-C do seu Mac ou carregador para recarregar e sincronizar de forma rápida e segura.",
+    specs: {
+      chip: "N/A",
+      camera: "N/A",
+      battery: "N/A",
+      screen: "N/A",
+      os: "Comprimento de 1 metro"
+    }
+  },
+  {
+    id: "carregador-magsafe-apple",
+    name: "Carregador MagSafe Apple",
+    model: "Acessórios",
+    condition: "novo",
+    price: 250.00,
+    installments: 12,
+    storage: "N/A",
+    color: "Prata/Branco",
+    colorHex: "#E5E5E5",
+    category: "acessorios",
+    images: ["assets/images/iphocell.png", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: true,
+    description: "O carregador MagSafe recarrega seu aparelho num piscar de olhos. Os ímãs se alinham perfeitamente ao seu iPhone para recarga sem fio rápida de até 15W com total segurança.",
+    specs: {
+      chip: "N/A",
+      camera: "N/A",
+      battery: "N/A",
+      screen: "N/A",
+      os: "Tecnologia de Indução MagSafe"
+    }
+  },
+  {
+    id: "capa-silicone-16promax-preta",
+    name: "Capa de Silicone com MagSafe iPhone 16 Pro Max Preta",
+    model: "Acessórios",
+    condition: "novo",
+    price: 120.00,
+    installments: 6,
+    storage: "N/A",
+    color: "Preto",
+    colorHex: "#1C1D21",
+    category: "acessorios",
+    images: ["assets/images/iphocell.png", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: true,
+    description: "Criada pela Apple para complementar o iPhone 16 Pro Max, a capa de silicone oferece toque sedoso e proteção robusta contra quedas, com suporte total ao MagSafe.",
+    specs: {
+      chip: "N/A",
+      camera: "N/A",
+      battery: "N/A",
+      screen: "N/A",
+      os: "Compatível com iPhone 16 Pro Max"
+    }
+  },
+  {
+    id: "pelicula-vidro-3d-premium",
+    name: "Película de Vidro 3D Premium",
+    model: "Acessórios",
+    condition: "novo",
+    price: 45.00,
+    installments: 3,
+    storage: "N/A",
+    color: "Transparente",
+    colorHex: "#FFFFFF",
+    category: "acessorios",
+    images: ["assets/images/iphocell.png", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: true,
+    description: "Película protetora de vidro temperado 3D de cobertura total. Altíssima sensibilidade ao toque, ultra transparente e resistente contra riscos e impactos severos.",
+    specs: {
+      chip: "N/A",
+      camera: "N/A",
+      battery: "N/A",
+      screen: "N/A",
+      os: "Compatível com linhas iPhone 11 ao 16"
+    }
   }
 ];

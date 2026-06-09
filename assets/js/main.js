@@ -192,7 +192,8 @@ function initScrollAnimations() {
    3. PÁGINA HOME (`index.html`)
    ========================================================================== */
 function initHomePage() {
-  const scrollContainer = document.querySelector('.horizontal-scroll-container');
+  const scrollContainer = document.querySelector('.products-scroll-container') || document.querySelector('.horizontal-scroll-container');
+  const accessoriesContainer = document.querySelector('.accessories-scroll-container');
   if (!scrollContainer) return;
 
   // Filtrar apenas iPhones mais recentes (Destaques)
@@ -261,10 +262,11 @@ function initHomePage() {
         <div class="product-card-content">
           <div>
             <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${safeName}</h3>
+            ${(product.color && product.color !== 'N/A') || (product.storage && product.storage !== 'N/A') ? `
             <div class="product-card-meta">
-              <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>
-              <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>
-            </div>
+              ${product.color && product.color !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
+              ${product.storage && product.storage !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>` : ''}
+            </div>` : ''}
           </div>
           <div>
             <div class="product-card-price-row">
@@ -283,6 +285,61 @@ function initHomePage() {
   });
 
   scrollContainer.innerHTML = html;
+
+  // Renderizar Acessórios em Destaque
+  if (accessoriesContainer) {
+    const featuredAccessories = products.filter(p => p.category === 'acessorios');
+    let accessoriesHtml = '';
+    
+    featuredAccessories.forEach(product => {
+      const isFav = isInWishlist(product.id);
+      const favClass = isFav ? 'active' : '';
+      const condLabel = product.condition === 'novo' ? 'Novo' : product.condition === 'seminovo' ? 'Seminovo' : 'Lacrado';
+      const condClass = product.condition;
+      const installmentsVal = (product.price / product.installments).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      
+      const safeId = sanitizeHTML(product.id);
+      const safeName = sanitizeHTML(product.name);
+      const safeImg = sanitizeHTML(product.images[0]);
+      const safeColor = sanitizeHTML(product.color);
+      const safeStorage = sanitizeHTML(product.storage);
+      
+      accessoriesHtml += `
+        <div class="product-card">
+          <button class="card-wishlist-btn ${favClass}" onclick="toggleWishlist('${safeId}'); this.classList.toggle('active');" aria-label="Favoritar"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
+          <div class="product-card-img-wrapper" onclick="navigateToProduct('${safeId}')">
+            <img src="${safeImg}" alt="${safeName}">
+            <div class="card-badges">
+              <span class="badge-condicao ${condClass}">${condLabel}</span>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <div>
+              <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${safeName}</h3>
+              ${(product.color && product.color !== 'N/A') || (product.storage && product.storage !== 'N/A') ? `
+              <div class="product-card-meta">
+                ${product.color && product.color !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
+                ${product.storage && product.storage !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>` : ''}
+              </div>` : ''}
+            </div>
+            <div>
+              <div class="product-card-price-row">
+                <span class="card-price-label">A partir de</span>
+                <span class="card-price-val">R$ ${product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+                <span class="card-price-installments">ou ${product.installments}x de <span>R$ ${installmentsVal}</span> sem juros</span>
+              </div>
+              <div class="product-card-actions">
+                <button class="btn btn-outline" onclick="navigateToProduct('${safeId}')">Ver detalhes</button>
+                <button class="btn btn-primary" onclick="addToCart('${safeId}', 1)">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    
+    accessoriesContainer.innerHTML = accessoriesHtml;
+  }
 }
 
 /* ==========================================================================
@@ -485,10 +542,11 @@ function initCatalogPage() {
           <div class="product-card-content">
             <div>
               <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${safeName}</h3>
-              <div class="product-card-meta">
-                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>
-                <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>
-              </div>
+            ${(product.color && product.color !== 'N/A') || (product.storage && product.storage !== 'N/A') ? `
+            <div class="product-card-meta">
+              ${product.color && product.color !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
+              ${product.storage && product.storage !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>` : ''}
+            </div>` : ''}
             </div>
             <div>
               <div class="product-card-price-row">
@@ -722,10 +780,11 @@ function renderRelatedProducts(currentProduct) {
         <div class="product-card-content">
           <div>
             <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${safeName}</h3>
+            ${(product.color && product.color !== 'N/A') || (product.storage && product.storage !== 'N/A') ? `
             <div class="product-card-meta">
-              <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>
-              <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>
-            </div>
+              ${product.color && product.color !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
+              ${product.storage && product.storage !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>` : ''}
+            </div>` : ''}
           </div>
           <div>
             <div class="product-card-price-row">
