@@ -2571,3 +2571,106 @@ img {
   0%, 100% { filter: brightness(1) saturate(1); }
   50%       { filter: brightness(1.08) saturate(1.15); }
 }
+
+/* ==========================================================================
+   SEÇÃO DE ASSISTÊNCIA TÉCNICA - ESTILO APPLE
+   ========================================================================== */
+.section-assistance-apple {
+  background-color: #FFFFFF;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.assistance-apple-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+}
+
+.assistance-apple-text-header {
+  margin-bottom: 48px;
+  max-width: 680px;
+}
+
+.assistance-apple-tag {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #8E8E93;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.assistance-apple-title {
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #1D1D1F;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+}
+
+.assistance-apple-title .highlight-text {
+  color: var(--accent);
+}
+
+.assistance-apple-subtitle {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: #6E6E73;
+  font-weight: 400;
+}
+
+.assistance-apple-banner-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.assistance-apple-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.assistance-apple-cta-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.assistance-apple-btn {
+  padding: 16px 36px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Responsividade do Banner de Assistência */
+@media (max-width: 768px) {
+  .section-assistance-apple {
+    padding: 60px 0;
+  }
+  .assistance-apple-title {
+    font-size: 32px;
+  }
+  .assistance-apple-subtitle {
+    font-size: 1rem;
+  }
+  .assistance-apple-banner-wrapper {
+    border-radius: 12px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    box-shadow: none;
+    border: none;
+  }
+}
