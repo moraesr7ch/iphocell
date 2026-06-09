@@ -799,7 +799,7 @@ img {
   width: 100%;
   height: auto;
   transform-origin: center bottom;
-  animation: appleRotate 7s ease-in-out infinite, appleGlow 3s ease-in-out infinite;
+  animation: appleRotate 7s ease-in-out infinite, heroBrightness 3.5s ease-in-out infinite;
   will-change: transform, filter;
 }
 
@@ -915,14 +915,7 @@ img {
   }
 }
 
-@keyframes appleGlow {
-  0%, 100% {
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
-  }
-  50% {
-    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.9));
-  }
-}
+
 
 @keyframes fadeInUp {
   to {
@@ -2555,4 +2548,46 @@ img {
   .product-card {
     width: 100%;
   }
+}
+
+/* Efeito de Respiração de Brilho na Maçã (Ajuste de Brilho/Saturação) */
+@keyframes heroBrightness {
+  0%, 100% { filter: brightness(1) saturate(1); }
+  50%       { filter: brightness(1.08) saturate(1.15); }
+}
+
+/* Efeito de Brilho Pulsante sobre a Maçã */
+.apple-glow-effect {
+  position: absolute;
+  top: 8%;
+  right: 28%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 3;
+  filter: blur(45px);
+  animation: glowPulse 3.5s ease-in-out infinite,
+             filterPulse 3.5s ease-in-out infinite,
+             appleFloat 5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%   { box-shadow: 
+           0 0 30px 10px rgba(255,255,255,0.0),
+           0 0 60px 20px rgba(120,220,255,0.0),
+           0 0 90px 30px rgba(255,100,200,0.0); }
+  50%  { box-shadow: 
+           0 0 40px 15px rgba(255,255,255,0.25),
+           0 0 80px 30px rgba(120,220,255,0.2),
+           0 0 120px 50px rgba(255,100,200,0.15); }
+  100% { box-shadow: 
+           0 0 30px 10px rgba(255,255,255,0.0),
+           0 0 60px 20px rgba(120,220,255,0.0),
+           0 0 90px 30px rgba(255,100,200,0.0); }
+}
+
+@keyframes filterPulse {
+  0%, 100% { filter: brightness(1); }
+  50%       { filter: brightness(1.2); }
 }
