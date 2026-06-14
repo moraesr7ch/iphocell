@@ -179,6 +179,58 @@ img {
   border-bottom: 1px solid transparent;
 }
 
+/* Transições suaves para os elementos da Navbar ao rolar */
+.logo-brand,
+.logo-brand .logo-accent,
+.logo-apple-icon,
+.nav-links a,
+.nav-btn,
+.menu-toggle span,
+.search-input-wrapper input,
+.search-input-wrapper i {
+  transition: var(--transition-smooth);
+}
+
+/* Letras brancas e ajustes na Header transparente sobre a Hero */
+body:has(.hero) .header:not(.scrolled) .logo-brand {
+  color: #FFFFFF !important;
+}
+body:has(.hero) .header:not(.scrolled) .logo-brand .logo-accent {
+  color: #FFFFFF !important;
+}
+body:has(.hero) .header:not(.scrolled) .logo-apple-icon {
+  filter: invert(1) brightness(10);
+}
+body:has(.hero) .header:not(.scrolled) .nav-links a {
+  color: #FFFFFF;
+}
+body:has(.hero) .header:not(.scrolled) .nav-links a::after {
+  background-color: #FFFFFF;
+}
+body:has(.hero) .header:not(.scrolled) .nav-btn {
+  color: #FFFFFF;
+}
+body:has(.hero) .header:not(.scrolled) .nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+body:has(.hero) .header:not(.scrolled) .menu-toggle span {
+  background-color: #FFFFFF;
+}
+body:has(.hero) .header:not(.scrolled) .search-input-wrapper input {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+body:has(.hero) .header:not(.scrolled) .search-input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+body:has(.hero) .header:not(.scrolled) .search-input-wrapper i {
+  color: rgba(255, 255, 255, 0.6);
+}
+body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
+  color: var(--text-muted);
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -757,83 +809,26 @@ img {
 /* Hero Cinematic Section */
 .hero {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   margin-top: -64px;
   overflow: hidden;
-  background-color: #E0F2FE; /* Fallback de céu */
-  background-image: url('../images/sky.png');
+  background-color: #010409; /* Cor correspondente ao fundo da imagem */
+  background-image: url('../images/apple-hero-bg-1920.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center 0px;
-  will-change: background-position;
+  background-position: center center;
 }
 
-/* Camadas do Hero */
-.hero-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  pointer-events: none;
-  display: block;
-}
 
-/* Camada 1: Sky */
-.hero-sky {
-  z-index: 1;
-  display: none;
-}
-
-/* Camada 2: Clouds */
-.hero-clouds {
-  z-index: 2;
-  animation: cloudsDrift 14s ease-in-out infinite;
-  will-change: transform;
-}
-
-/* Camada 3: Grass */
-.hero-grass {
-  z-index: 3;
-  animation: grassSway 14s ease-in-out infinite;
-  will-change: transform;
-}
-
-/* Camada 4: Apple Logo Wrapper */
-.apple-wrapper {
-  position: absolute;
-  right: 20%;
-  top: 12%;
-  width: 28%;
-  max-width: 420px;
-  z-index: 4;
-  pointer-events: none;
-}
-
-.apple-float {
-  animation: appleFloat 5s ease-in-out infinite;
-  will-change: transform;
-}
-
-.apple-img {
-  width: 100%;
-  height: auto;
-  transform-origin: center bottom;
-  animation: appleRotate 7s ease-in-out infinite, heroBrightness 3.5s ease-in-out infinite;
-  will-change: transform, filter;
-}
 
 /* Overlay de Texto */
 .hero-overlay-container {
   position: absolute;
-  bottom: 0;
+  top: 50%;
   left: 0;
   width: 100%;
-  padding-bottom: 80px;
+  transform: translateY(-50%);
   z-index: 5;
   pointer-events: none;
 }
@@ -898,41 +893,7 @@ img {
 }
 
 /* Keyframes */
-@keyframes cloudsDrift {
-  0%, 100% {
-    transform: scale(1.08) translateX(0);
-  }
-  50% {
-    transform: scale(1.08) translateX(6px);
-  }
-}
 
-@keyframes grassSway {
-  0%, 100% {
-    transform: scale(1.04) translateX(0);
-  }
-  50% {
-    transform: scale(1.04) translateX(8px);
-  }
-}
-
-@keyframes appleFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-14px);
-  }
-}
-
-@keyframes appleRotate {
-  0%, 100% {
-    transform: rotate(-2.5deg);
-  }
-  50% {
-    transform: rotate(2.5deg);
-  }
-}
 
 
 
@@ -2385,11 +2346,7 @@ img {
 
 /* Breakpoint: Tablets (<= 1024px) */
 @media (max-width: 1024px) {
-  .apple-wrapper {
-    right: 12%;
-    top: 15%;
-    width: 32%;
-  }
+
   .hero-overlay-title {
     font-size: 42px;
   }
@@ -2452,21 +2409,17 @@ img {
   
   .hero {
     height: 100vh;
-    background-position: center center;
+    background-size: 200% auto;
+    background-position: left 76% bottom -100px;
+    background-repeat: no-repeat;
+    background-color: #000000;
   }
-  .apple-wrapper {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    top: 18%;
-    width: 55%;
-    max-width: 270px;
-  }
-  .apple-img {
-    transform-origin: center bottom;
-  }
+
   .hero-overlay-container {
-    padding-bottom: 60px;
+    top: 130px;
+    bottom: auto;
+    transform: none;
+    padding-bottom: 0;
   }
   .hero-overlay {
     align-items: center;
@@ -2570,69 +2523,7 @@ img {
   }
 }
 
-/* Efeito de Respiração de Brilho na Maçã (Ajuste de Brilho/Saturação e Brilho Branco) */
-@keyframes heroBrightness {
-  0%, 100% {
-    filter: brightness(1) saturate(1) 
-            drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)) 
-            drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
-  }
-  50% {
-    filter: brightness(1.08) saturate(1.2) 
-            drop-shadow(0 0 25px rgba(255, 255, 255, 0.8)) 
-            drop-shadow(0 0 45px rgba(255, 255, 255, 0.5));
-  }
-}
 
-/* Sombra Estática da Maçã na Grama */
-.apple-shadow {
-  position: absolute;
-  right: 20%;
-  bottom: 22%;
-  width: 28%;
-  max-width: 420px;
-  height: 24px;
-  pointer-events: none;
-  z-index: 3.5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.apple-shadow::after {
-  content: "";
-  width: 55%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.45);
-  border-radius: 50%;
-  filter: blur(14px);
-}
-
-@media (max-width: 1024px) {
-  .apple-shadow {
-    right: 12%;
-    width: 32%;
-    bottom: 25%;
-    height: 20px;
-  }
-  .apple-shadow::after {
-    filter: blur(11px);
-  }
-}
-
-@media (max-width: 768px) {
-  .apple-shadow {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    bottom: 49%;
-    width: 55%;
-    max-width: 270px;
-    height: 18px;
-  }
-  .apple-shadow::after {
-    filter: blur(10px);
-  }
-}
 
 /* Classes utilitárias para animação de entrada de palavras via JS */
 .js-enabled .word-animate-target {
