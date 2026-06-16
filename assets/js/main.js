@@ -65,6 +65,28 @@ function initGlobalFeatures() {
         }
       });
     }
+
+    // Monitora a seção do iPhone 12 Pro para alternar o header para o modo escuro ao passar por ela
+    const iphone12Section = document.getElementById('iphone12-intro-section');
+    if (iphone12Section) {
+      const darkHeaderObserverOptions = {
+        root: null,
+        rootMargin: '0px 0px -95% 0px', // Observa apenas a linha do header no topo do viewport
+        threshold: 0
+      };
+
+      const darkHeaderObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            header.classList.add('header-on-dark');
+          } else {
+            header.classList.remove('header-on-dark');
+          }
+        });
+      }, darkHeaderObserverOptions);
+
+      darkHeaderObserver.observe(iphone12Section);
+    }
   }
 
   // Menu Mobile (Hambúrguer)
@@ -340,8 +362,68 @@ function initHomePage() {
     
     accessoriesContainer.innerHTML = accessoriesHtml;
   }
+  // Inicialização do vídeo do iPhone 12 Pro (reproduz apenas quando visível na tela)
+  const video = document.getElementById('iphone12-video');
+  const section = document.getElementById('iphone12-intro-section');
+  const staticImg = document.querySelector('.iphone12-static-img');
+  if (video && section) {
+    let hasPlayed = false;
 
+    // Garante que a imagem estática comece invisível e totalmente oculta
+    if (staticImg) {
+      staticImg.style.opacity = '0';
+      staticImg.style.visibility = 'hidden';
+    }
 
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15 // Inicia o play quando 15% da seção estiver na tela
+    };
+
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasPlayed) {
+          hasPlayed = true; // Impede múltiplas reproduções ao rolar a página
+          
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.then(() => {
+              // Iniciou a reprodução com sucesso
+            }).catch(error => {
+              // Se o autoplay for bloqueado pelo navegador, exibe a imagem estática de fallback
+              console.warn("Play do vídeo do iPhone 12 Pro foi bloqueado ou falhou:", error);
+              video.style.opacity = '0';
+              video.style.display = 'none';
+              if (staticImg) {
+                staticImg.style.visibility = 'visible';
+                staticImg.style.opacity = '1';
+              }
+            });
+          }
+          
+          // Uma vez disparado o play, encerramos a observação desta seção
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    videoObserver.observe(section);
+
+    // Oculta o vídeo quando ele terminar
+    video.addEventListener('ended', () => {
+      video.style.opacity = '0';
+      // Exibe a imagem estática com fade-in suave
+      if (staticImg) {
+        staticImg.style.visibility = 'visible';
+        staticImg.style.opacity = '1';
+      }
+      // Após o fade-out do vídeo (0.8s), ocultamos o elemento
+      setTimeout(() => {
+        video.style.display = 'none';
+      }, 800);
+    });
+  }
 }
 
 /* ==========================================================================
