@@ -66,9 +66,9 @@ function initGlobalFeatures() {
       });
     }
 
-    // Monitora a seção do iPhone 12 Pro para alternar o header para o modo escuro ao passar por ela
-    const iphone12Section = document.getElementById('iphone12-intro-section');
-    if (iphone12Section) {
+    // Monitora as seções escuras para alternar o header para o modo escuro ao passar por elas
+    const darkSections = document.querySelectorAll('#iphone12-intro-section, #iphone12-details-section');
+    if (darkSections.length > 0) {
       const darkHeaderObserverOptions = {
         root: null,
         rootMargin: '0px 0px -95% 0px', // Observa apenas a linha do header no topo do viewport
@@ -80,12 +80,20 @@ function initGlobalFeatures() {
           if (entry.isIntersecting) {
             header.classList.add('header-on-dark');
           } else {
-            header.classList.remove('header-on-dark');
+            // Só remove se nenhuma outra seção escura estiver sob o header
+            const isAnyDarkVisible = Array.from(darkSections).some(sectionEl => {
+              const bounds = sectionEl.getBoundingClientRect();
+              return bounds.top <= 80 && bounds.bottom >= 0;
+            });
+            
+            if (!isAnyDarkVisible) {
+              header.classList.remove('header-on-dark');
+            }
           }
         });
       }, darkHeaderObserverOptions);
 
-      darkHeaderObserver.observe(iphone12Section);
+      darkSections.forEach(sectionEl => darkHeaderObserver.observe(sectionEl));
     }
   }
 
