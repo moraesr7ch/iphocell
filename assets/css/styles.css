@@ -3144,3 +3144,122 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
   letter-spacing: -0.015em;
   margin: 0;
 }
+
+/* Efeito Scroll Reveal do iPhone 12 Pro */
+.js-enabled .iphone12-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.js-enabled .iphone12-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Seção do iPhone 12 Pro na Água */
+.iphone12-water-section {
+  background-color: #000000;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 100px 20px;
+}
+
+.iphone12-water-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+.iphone12-water-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  max-width: 860px;
+  width: 100%;
+}
+
+.iphone12-water-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.iphone12-water-title {
+  color: #86868b; /* Cinza idêntico ao da seção de especificações */
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.iphone12-water-subtitle {
+  color: #86868b; /* Cinza idêntico ao da seção de especificações */
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.iphone12-water-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px; /* Limita largura do celular para proporção idêntica à anterior */
+}
+
+.iphone12-water-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* Ajustes no Desktop para Efeito Sticky */
+@media (min-width: 992px) {
+  .iphone12-water-section {
+    position: sticky;
+    top: 64px;
+    z-index: 3; /* Fica sobre os detalhes (z-index 2) e abaixo de categories (z-index 5) */
+    height: 100vh;
+    padding: 0;
+  }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+  .iphone12-water-section {
+    padding: 80px 20px;
+  }
+
+  .iphone12-water-content-wrapper {
+    gap: 30px;
+  }
+
+  .iphone12-water-title {
+    font-size: 24px;
+  }
+
+  .iphone12-water-subtitle {
+    font-size: 15px;
+  }
+
+  .iphone12-water-image-wrapper {
+    max-width: 350px;
+  }
+}
