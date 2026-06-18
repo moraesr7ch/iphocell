@@ -2601,6 +2601,10 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
     overflow: visible;
   }
 
+  .iphone12-stack-container {
+    background-color: #000000; /* Fundo preto absoluto para ocultar a lacuna do sticky scroll (barra cinza) */
+  }
+
   .section-assistance-apple {
     position: sticky;
     top: 64px; /* Fixa logo abaixo da navbar */
@@ -2622,6 +2626,28 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
 
   #featured-accessories-section {
     padding-top: 0;
+  }
+
+  .iphone12-intro-section {
+    position: sticky;
+    top: 64px; /* Fixa logo abaixo da navbar, idêntico à seção de manutenção */
+    z-index: 1;
+  }
+
+  .iphone12-details-section {
+    position: sticky; /* Fixa na tela assim que o scroll a atinge */
+    top: 64px;
+    z-index: 2;
+    background-color: #000000;
+  }
+
+  #conditions-section {
+    position: relative;
+    z-index: 5; /* Fica sobre a introdução e detalhes, idêntico ao z-index dos produtos da manutenção */
+    background-color: var(--bg-light); /* Fundo branco opaco */
+    border-top-left-radius: 40px; /* Efeito gaveta */
+    border-top-right-radius: 40px;
+    box-shadow: 0 -20px 45px rgba(0, 0, 0, 0.12); /* Sombra para marcar profundidade */
   }
 }
 
@@ -2888,6 +2914,19 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
   align-items: flex-end;
   overflow: hidden;
   z-index: 2;
+}
+
+/* Máscara de degradê no rodapé da mídia (vídeo e imagem) para suavizar o corte seco */
+.iphone12-media-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px; /* Altura do degrade para suavizar o corte da imagem do iPhone */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  pointer-events: none;
+  z-index: 4; /* Fica acima do vídeo (z-index 3) e da imagem estática */
 }
 
 #iphone12-video {
