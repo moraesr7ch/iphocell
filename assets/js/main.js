@@ -18,19 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initGlobalFeatures();
   
-  // Detectar em qual página estamos e carregar a lógica específica
-  const path = window.location.pathname;
+  // Detectar em qual página estamos e carregar a lógica específica (compatível com Clean URLs na hospedagem)
+  const path = window.location.pathname.toLowerCase().replace(/\/$/, "");
   const page = path.substring(path.lastIndexOf('/') + 1);
   
-  if (page === '' || page === 'index.html') {
+  if (page === '' || page === 'index' || page === 'index.html') {
     initHomePage();
-  } else if (page === 'catalogo.html') {
+  } else if (page === 'catalogo' || page === 'catalogo.html') {
     initCatalogPage();
-  } else if (page === 'produto.html') {
+  } else if (page === 'produto' || page === 'produto.html') {
     initProductDetailPage();
-  } else if (page === 'manutencao.html') {
+  } else if (page === 'manutencao' || page === 'manutencao.html') {
     initMaintenancePage();
-  } else if (page === 'sobre.html') {
+  } else if (page === 'sobre' || page === 'sobre.html') {
     initAboutPage();
   }
   
