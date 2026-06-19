@@ -356,6 +356,9 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
   display: flex;
   align-items: center;
   gap: 20px;
+  flex: 1;
+  max-width: 650px;
+  justify-content: flex-end;
 }
 
 .nav-btn {
@@ -676,7 +679,7 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
 .search-container-bar {
   position: relative;
   flex: 1;
-  max-width: 400px;
+  max-width: 550px;
 }
 .search-input-wrapper {
   position: relative;
@@ -2593,8 +2596,8 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
     transition: max-width 0.3s cubic-bezier(0.25, 1, 0.5, 1), flex-basis 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   }
   .search-container-bar:focus-within {
-    max-width: 150px;
-    flex: 0 0 150px;
+    max-width: 260px;
+    flex: 0 0 260px;
   }
   .search-input-wrapper input {
     height: 38px;
