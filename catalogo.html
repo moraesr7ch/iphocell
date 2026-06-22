@@ -67,8 +67,17 @@
   <main class="container">
     <div class="catalog-page-container">
       
+      <!-- Overlay para fechar os filtros ao clicar fora (glassmorphic) -->
+      <div class="sidebar-overlay" id="sidebar-overlay"></div>
+      
       <!-- FILTROS LATERAIS (SIDEBAR) -->
       <aside class="catalog-sidebar" id="catalog-sidebar-panel">
+        <div class="sidebar-header">
+          <h2 class="sidebar-title">Filtros</h2>
+          <button class="btn-close-sidebar" id="btn-close-sidebar" aria-label="Fechar Filtros">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
         <!-- Categoria -->
         <div class="filter-section">
           <h3 class="filter-title">Categoria</h3>
@@ -139,13 +148,19 @@
       <section class="catalog-content">
         <!-- Top Bar -->
         <div class="catalog-topbar" id="catalog-top-actions">
+          <!-- Botão Filtrar -->
+          <button class="btn-filter-trigger" id="btn-filter-trigger" aria-label="Abrir Filtros">
+            FILTRAR
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="filter-icon"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+          </button>
+
           <div class="catalog-results-count">
             Mostrando <span class="catalog-results-count-val" style="font-weight: 700;">12</span> produtos
           </div>
           
           <!-- Filtro de Busca Interna no Catálogo -->
-          <div style="flex: 1; max-width: 250px;">
-            <input type="text" class="catalog-top-search-input" placeholder="Filtrar por nome..." aria-label="Filtrar por nome" style="padding: 8px 12px; border: 1px solid var(--border-color); border-radius: var(--border-radius-button); font-family: var(--font-family); font-size: 0.85rem; width: 100%;">
+          <div class="catalog-search-wrapper">
+            <input type="text" class="catalog-top-search-input" placeholder="Filtrar por nome..." aria-label="Filtrar por nome">
           </div>
 
           <div class="catalog-sorting-actions">
@@ -156,6 +171,7 @@
                 <option value="maior-preco">Maior Preço</option>
                 <option value="mais-recente">Mais Recente</option>
               </select>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="sort-chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
 
             <!-- Alternador Grid / Lista -->
@@ -235,7 +251,7 @@
 
       <div class="footer-bottom">
         <p class="footer-copyright">
-          &copy; 2025 iPhocell. Todos os direitos reservados. CNPJ: 00.000.000/0001-00
+          &copy; 2025 iPhocell. Todos os direitos reservados. CNPJ: 00.000.000/0001-00  | Criado por <a href="https://www.instagram.com/msdigitall.co">@msdigitall.co</a>
         </p>
         <div class="footer-payments">
           <span class="payment-badge">Pix</span>

@@ -463,6 +463,38 @@ function initCatalogPage() {
   const gridContainer = document.querySelector('.products-grid-catalog');
   if (!gridContainer) return;
 
+  // Controle da gaveta de filtros (abrir/fechar)
+  const filterBtn = document.getElementById('btn-filter-trigger');
+  const closeBtn = document.getElementById('btn-close-sidebar');
+  const sidebar = document.getElementById('catalog-sidebar-panel');
+  const overlay = document.getElementById('sidebar-overlay');
+
+  function openFilters() {
+    if (sidebar && overlay) {
+      sidebar.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden'; // Evita rolagem da página de fundo
+    }
+  }
+
+  function closeFilters() {
+    if (sidebar && overlay) {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = ''; // Restaura rolagem normal
+    }
+  }
+
+  if (filterBtn) {
+    filterBtn.addEventListener('click', openFilters);
+  }
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeFilters);
+  }
+  if (overlay) {
+    overlay.addEventListener('click', closeFilters);
+  }
+
   // Estado dos Filtros do Catálogo
   let currentFilters = {
     category: 'todos',
@@ -495,6 +527,11 @@ function initCatalogPage() {
       btn.classList.add('active');
       currentFilters.category = btn.dataset.category;
       applyFiltersAndRender();
+      
+      // Fechar painel de filtros automaticamente no mobile após selecionar uma categoria
+      if (window.innerWidth <= 768) {
+        setTimeout(closeFilters, 250);
+      }
     });
   });
 
