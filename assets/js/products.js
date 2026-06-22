@@ -149,7 +149,7 @@ const products = [
     color: "Estelar",
     colorHex: "#FAF5EF",
     category: "iphone",
-    images: ["assets/images/iphone13-estelar.png"],
+    images: ["assets/images/iphone13-estelar.png", "assets/images/iphone13-estelar2.png", "assets/images/ipad11-cinza.png"],
     inStock: true,
     isNew: false,
     description: "O iPhone 13 traz o sensor de câmera na diagonal com a estabilização por deslocamento de sensor da linha Pro Max, chip A15 Bionic super rápido e ótima autonomia.",
