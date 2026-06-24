@@ -792,12 +792,40 @@ function initProductDetailPage() {
   
   // Disponibilidade em estoque
   const stockText = document.getElementById('detail-stock-status');
-  if (product.condition === 'seminovo') {
-    stockText.className = 'stock-status'; // vermelho para última unidade
-    stockText.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> Última unidade disponível!`;
+  const detailAddToCartBtn = document.getElementById('detail-add-to-cart');
+  const detailBuyNowBtn = document.getElementById('detail-buy-now');
+
+  if (product.inStock === false) {
+    if (stockText) {
+      stockText.className = 'stock-status out-of-stock';
+      stockText.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg> Esgotado (Sem estoque no momento)`;
+      stockText.style.color = '#ef4444'; // Vermelho slate
+    }
+    
+    // Desabilitar botões
+    if (detailAddToCartBtn) {
+      detailAddToCartBtn.disabled = true;
+      detailAddToCartBtn.textContent = 'Sem estoque';
+      detailAddToCartBtn.style.opacity = '0.5';
+      detailAddToCartBtn.style.cursor = 'not-allowed';
+    }
+    if (detailBuyNowBtn) {
+      detailBuyNowBtn.disabled = true;
+      detailBuyNowBtn.textContent = 'Sem estoque';
+      detailBuyNowBtn.style.opacity = '0.5';
+      detailBuyNowBtn.style.cursor = 'not-allowed';
+    }
   } else {
-    stockText.className = 'stock-status in-stock';
-    stockText.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Em estoque (Pronta Entrega)`;
+    if (stockText) {
+      stockText.style.color = '';
+      if (product.condition === 'seminovo') {
+        stockText.className = 'stock-status'; // vermelho para última unidade
+        stockText.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> Última unidade disponível!`;
+      } else {
+        stockText.className = 'stock-status in-stock';
+        stockText.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Em estoque (Pronta Entrega)`;
+      }
+    }
   }
 
   // Preço e parcelamento
@@ -853,9 +881,13 @@ function initProductDetailPage() {
     let colorHtml = '';
     uniqueColors.forEach(v => {
       const isActive = v.color.toLowerCase() === product.color.toLowerCase() ? 'active' : '';
+      const isOutOfStock = !v.inStock ? 'out-of-stock' : '';
+      // 🔒 Só permite o clique de navegação se o produto estiver em estoque (evita navegação para variantes esgotadas)
+      const clickAction = v.inStock ? `onclick="navigateToProduct('${v.id}')"` : '';
+      
       colorHtml += `
-        <div class="color-variant-dot ${isActive}" style="--color-hex: ${v.colorHex}" onclick="navigateToProduct('${v.id}')" role="button" aria-label="Cor ${sanitizeHTML(v.color)}">
-          <span class="color-name-tooltip">${sanitizeHTML(v.color)}</span>
+        <div class="color-variant-dot ${isActive} ${isOutOfStock}" style="--color-hex: ${v.colorHex}" ${clickAction} role="button" aria-label="Cor ${sanitizeHTML(v.color)} ${!v.inStock ? '(Sem Estoque)' : ''}">
+          <span class="color-name-tooltip">${sanitizeHTML(v.color)} ${!v.inStock ? '(Sem estoque)' : ''}</span>
         </div>
       `;
     });

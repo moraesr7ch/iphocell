@@ -28,13 +28,13 @@ const products = [
     name: "iPhone 11 64GB Branco",
     model: "iPhone 11",
     condition: "seminovo",
-    price: 1200.00,
+    price: 1100.00,
     installments: 12,
     storage: "64GB",
     color: "Branco",
     colorHex: "#F0EFEA",
     category: "iphone",
-    images: ["assets/images/iphone11-branco.webp", "assets/images/iphocell.jpg"],
+    images: ["assets/images/iphone11-branco.webp", "assets/images/iphone11-branco2.webp", "assets/images/iphone11-branco3.webp", "assets/images/iphone11-branco4.webp"],
     inStock: true,
     isNew: false,
     description: "O iPhone 11 possui um sistema de câmera dupla brilhante para capturar fotos ultra-angulares incríveis, modo Noite e vídeos em 4K. Chip A13 Bionic e bateria para o dia todo.",
@@ -43,6 +43,52 @@ const products = [
       camera: "Dupla 12MP (Ultra-angular e Angular) com modo Noite",
       battery: "Até 17 horas de reprodução de vídeo",
       screen: "LCD Liquid Retina HD de 6,1 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
+    id: "iphone-11-128-branco",
+    name: "iPhone 11 128GB Branco",
+    model: "iPhone 11",
+    condition: "seminovo",
+    price: 1200.00,
+    installments: 12,
+    storage: "128GB",
+    color: "Branco",
+    colorHex: "#F0EFEA",
+    category: "iphone",
+    images: ["assets/images/iphone11-branco.webp", "assets/images/iphone11-branco2.webp", "assets/images/iphone11-branco3.webp", "assets/images/iphone11-branco4.webp"],
+    inStock: true,
+    isNew: false,
+    description: "O iPhone 11 possui um sistema de câmera dupla brilhante para capturar fotos ultra-angulares incríveis, modo Noite e vídeos em 4K. Chip A13 Bionic e bateria para o dia todo.",
+    specs: {
+      chip: "A13 Bionic",
+      camera: "Dupla 12MP (Ultra-angular e Angular) com modo Noite",
+      battery: "Até 17 horas de reprodução de vídeo",
+      screen: "LCD Liquid Retina HD de 6,1 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
+    id: "iphone-11-promax-64-cinza",
+    name: "iPhone 11 Pro Max 64GB Cinza Espacial",
+    model: "iPhone 11 Pro Max",
+    condition: "seminovo",
+    price: 1400.00,
+    installments: 12,
+    storage: "64GB",
+    color: "Cinza Espacial",
+    colorHex: "#4E5052",
+    category: "iphone",
+    images: ["assets/images/11promax-cinza.webp", "assets/images/11promax-cinza2.webp", "assets/images/11promax-cinza3.webp", "assets/images/11promax-cinza4.webp"],
+    inStock: true,
+    isNew: false,
+    description: "O iPhone 11 Pro Max traz o sistema de câmera tripla profissional, tela Super Retina XDR de 6,5 polegadas de alta definição e o eficiente chip A13 Bionic.",
+    specs: {
+      chip: "A13 Bionic",
+      camera: "Tripla 12MP (Teleobjetiva, Grande-angular e Ultra-angular)",
+      battery: "Até 20 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR de 6,5 polegadas",
       os: "iOS 18 compatível"
     }
   },
@@ -57,7 +103,7 @@ const products = [
     color: "Cinza Espacial",
     colorHex: "#4E5052",
     category: "iphone",
-    images: ["assets/images/iphone11-promax.webp", "assets/images/iphocell.jpg"],
+    images: ["assets/images/11promax-cinza.webp", "assets/images/11promax-cinza2.webp", "assets/images/11promax-cinza3.webp", "assets/images/11promax-cinza4.webp"],
     inStock: true,
     isNew: false,
     description: "O iPhone 11 Pro Max traz o sistema de câmera tripla profissional, tela Super Retina XDR de 6,5 polegadas de alta definição e o eficiente chip A13 Bionic.",
@@ -70,6 +116,29 @@ const products = [
     }
   },
   {
+    id: "iphone-12-64-azul",
+    name: "iPhone 12 64GB Azul",
+    model: "iPhone 12",
+    condition: "seminovo",
+    price: 1400.00,
+    installments: 12,
+    storage: "64GB",
+    color: "Azul",
+    colorHex: "#1D3A4E",
+    category: "iphone",
+    images: ["assets/images/iphone12-azul.webp", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: false,
+    description: "iPhone 12 com velocidade 5G. Tela Super Retina XDR de alta definição. Ceramic Shield, quatro vezes mais resistente a quedas. Excelente câmera dupla para fotos no escuro.",
+    specs: {
+      chip: "A14 Bionic",
+      camera: "Dupla 12MP (Ultra-angular e Angular) com modo Noite",
+      battery: "Até 17 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR de 6,1 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
     id: "iphone-12-128-azul",
     name: "iPhone 12 128GB Azul",
     model: "iPhone 12",
@@ -77,6 +146,29 @@ const products = [
     price: 1600.00,
     installments: 12,
     storage: "128GB",
+    color: "Azul",
+    colorHex: "#1D3A4E",
+    category: "iphone",
+    images: ["assets/images/iphone12-azul.webp", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: false,
+    description: "iPhone 12 com velocidade 5G. Tela Super Retina XDR de alta definição. Ceramic Shield, quatro vezes mais resistente a quedas. Excelente câmera dupla para fotos no escuro.",
+    specs: {
+      chip: "A14 Bionic",
+      camera: "Dupla 12MP (Ultra-angular e Angular) com modo Noite",
+      battery: "Até 17 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR de 6,1 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
+    id: "iphone-12-256-azul",
+    name: "iPhone 12 256GB Azul",
+    model: "iPhone 12",
+    condition: "seminovo",
+    price: 1800.00,
+    installments: 12,
+    storage: "256GB",
     color: "Azul",
     colorHex: "#1D3A4E",
     category: "iphone",
@@ -112,6 +204,52 @@ const products = [
       camera: "Tripla 12MP (Grande-angular, Ultra-angular e Teleobjetiva) com Scanner LiDAR",
       battery: "Até 17 horas de reprodução de vídeo",
       screen: "OLED Super Retina XDR de 6,1 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
+    id: "iphone-12-pro-256-grafite",
+    name: "iPhone 12 Pro 256GB Grafite",
+    model: "iPhone 12 Pro",
+    condition: "seminovo",
+    price: 2100.00,
+    installments: 12,
+    storage: "256GB",
+    color: "Grafite",
+    colorHex: "#5C5D5F",
+    category: "iphone",
+    images: ["assets/images/iphone12pro.webp", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: false,
+    description: "O iPhone 12 Pro eleva a experiência com um chassi de aço inoxidável premium, sistema de câmera tripla Pro, scanner LiDAR para foco avançado e processamento Apple ProRAW.",
+    specs: {
+      chip: "A14 Bionic",
+      camera: "Tripla 12MP (Grande-angular, Ultra-angular e Teleobjetiva) com Scanner LiDAR",
+      battery: "Até 17 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR de 6,1 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
+    id: "iphone-12-promax-128-azul",
+    name: "iPhone 12 Pro Max 128GB Azul Pacífico",
+    model: "iPhone 12 Pro Max",
+    condition: "seminovo",
+    price: 2000.00,
+    installments: 12,
+    storage: "128GB",
+    color: "Azul Pacífico",
+    colorHex: "#2C3E4E",
+    category: "iphone",
+    images: ["assets/images/iphone12promax-azulpacifico.webp", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: false,
+    description: "A maior tela e o melhor conjunto de lentes Pro da linha 12. O iPhone 12 Pro Max traz estabilização óptica por deslocamento de sensor e tela gigante de 6,7 polegadas.",
+    specs: {
+      chip: "A14 Bionic",
+      camera: "Tripla 12MP com Sensor-Shift OIS, Zoom óptico de 5x e scanner LiDAR",
+      battery: "Até 20 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR de 6,7 polegadas",
       os: "iOS 18 compatível"
     }
   },
@@ -162,6 +300,29 @@ const products = [
     }
   },
   {
+    id: "iphone-13-256-estelar",
+    name: "iPhone 13 256GB Estelar",
+    model: "iPhone 13",
+    condition: "seminovo",
+    price: 2300.00,
+    installments: 12,
+    storage: "256GB",
+    color: "Estelar",
+    colorHex: "#FAF5EF",
+    category: "iphone",
+    images: ["assets/images/iphone13-estelar.webp", "assets/images/iphone13-estelar2.webp", "assets/images/iphone13-estelar3.webp", "assets/images/iphone13-estelar4.webp"],
+    inStock: true,
+    isNew: false,
+    description: "O iPhone 13 traz o sensor de câmera na diagonal com a estabilização por deslocamento de sensor da linha Pro Max, chip A15 Bionic super rápido e ótima autonomia.",
+    specs: {
+      chip: "A15 Bionic",
+      camera: "Dupla 12MP (Grande-angular e Ultra-angular) com Estilos Fotográficos e Modo Cinema",
+      battery: "Até 19 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR de 6,1 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
     id: "iphone-13-pro-128-azul",
     name: "iPhone 13 Pro 128GB Azul Sierra",
     model: "iPhone 13 Pro",
@@ -181,6 +342,52 @@ const products = [
       camera: "Tripla 12MP Pro com Modo Cinematico, Modo Macro e Prores",
       battery: "Até 22 horas de reprodução de vídeo",
       screen: "OLED Super Retina XDR com ProMotion (120Hz) de 6,1 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
+    id: "iphone-13-pro-256-azul",
+    name: "iPhone 13 Pro 256GB Azul Sierra",
+    model: "iPhone 13 Pro",
+    condition: "seminovo",
+    price: 2800.00,
+    installments: 12,
+    storage: "256GB",
+    color: "Azul Sierra",
+    colorHex: "#9DB2C3",
+    category: "iphone",
+    images: ["assets/images/iphone13proazulsierra.webp", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: false,
+    description: "A linha 13 Pro introduz a tela Super Retina XDR com ProMotion (120Hz) para fluidez absoluta, lentes Pro maiores para fotos macro e chip A15 com GPU de 5 núcleos.",
+    specs: {
+      chip: "A15 Bionic com GPU de 5 núcleos",
+      camera: "Tripla 12MP Pro com Modo Cinematico, Modo Macro e Prores",
+      battery: "Até 22 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR com ProMotion (120Hz) de 6,1 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
+    id: "iphone-13-promax-128-grafite",
+    name: "iPhone 13 Pro Max 128GB Grafite",
+    model: "iPhone 13 Pro Max",
+    condition: "seminovo",
+    price: 2700.00,
+    installments: 12,
+    storage: "128GB",
+    color: "Grafite",
+    colorHex: "#5C5D5F",
+    category: "iphone",
+    images: ["assets/images/iphone13promax-grafite.webp", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: false,
+    description: "O campeão histórico em autonomia de bateria. O iPhone 13 Pro Max possui tela de 6,7 polegadas a 120Hz, câmeras de alta captação de luz e estrutura ultra resistente.",
+    specs: {
+      chip: "A15 Bionic com GPU de 5 núcleos",
+      camera: "Tripla Pro 12MP com lentes Grande-angular, Ultra-angular, Teleobjetiva (3x) e LiDAR",
+      battery: "Até 28 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR com ProMotion (120Hz) de 6,7 polegadas",
       os: "iOS 18 compatível"
     }
   },
@@ -231,6 +438,29 @@ const products = [
     }
   },
   {
+    id: "iphone-14-256-azul",
+    name: "iPhone 14 256GB Azul",
+    model: "iPhone 14",
+    condition: "seminovo",
+    price: 2600.00,
+    installments: 12,
+    storage: "256GB",
+    color: "Azul",
+    colorHex: "#A9C0D3",
+    category: "iphone",
+    images: ["assets/images/iphone14-azul.webp", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: false,
+    description: "iPhone 14 com o sistema de câmera dupla mais impressionante e o novo recurso de estabilização do Modo Ação. Além de contar com a inovadora Detecção de Acidentes.",
+    specs: {
+      chip: "A15 Bionic com GPU de 5 núcleos",
+      camera: "Dupla 12MP com Photonic Engine, Modo Ação e Estabilização Aprimorada",
+      battery: "Até 20 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR de 6,1 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
     id: "iphone-14-plus-128-estelar",
     name: "iPhone 14 Plus 128GB Estelar",
     model: "iPhone 14 Plus",
@@ -238,6 +468,29 @@ const products = [
     price: 2600.00,
     installments: 12,
     storage: "128GB",
+    color: "Estelar",
+    colorHex: "#FAF5EF",
+    category: "iphone",
+    images: ["assets/images/iphone14plus.webp", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: false,
+    description: "O modelo Plus combina a tela gigante de 6,7 polegadas da Apple com o peso reduzido e uma bateria de longa duração espetacular, perfeito para consumo de mídia.",
+    specs: {
+      chip: "A15 Bionic com GPU de 5 núcleos",
+      camera: "Dupla 12MP com Photonic Engine, Modo Ação e estabilização profissional",
+      battery: "Até 26 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR de 6,7 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
+    id: "iphone-14-plus-256-estelar",
+    name: "iPhone 14 Plus 256GB Estelar",
+    model: "iPhone 14 Plus",
+    condition: "seminovo",
+    price: 2800.00,
+    installments: 12,
+    storage: "256GB",
     color: "Estelar",
     colorHex: "#FAF5EF",
     category: "iphone",
@@ -291,6 +544,29 @@ const products = [
     inStock: true,
     isNew: false,
     description: "Espaço de armazenamento de 256GB para guardar tudo. O iPhone 14 Pro Max em Preto Espacial destaca a estética industrial premium em aço cirúrgico da Apple.",
+    specs: {
+      chip: "A16 Bionic",
+      camera: "Tripla Pro: Principal de 48MP com sensor quad-pixel, Ultra-angular e Teleobjetiva",
+      battery: "Até 29 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR Sempre Ativa (120Hz) de 6,7 polegadas",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
+    id: "iphone-14-promax-512-preto",
+    name: "iPhone 14 Pro Max 512GB Preto Espacial",
+    model: "iPhone 14 Pro Max",
+    condition: "seminovo",
+    price: 4200.00,
+    installments: 12,
+    storage: "512GB",
+    color: "Preto Espacial",
+    colorHex: "#1C1D21",
+    category: "iphone",
+    images: ["assets/images/iphone14promax-pretoespacial.webp", "assets/images/iphocell.jpg"],
+    inStock: true,
+    isNew: false,
+    description: "Espaço de armazenamento de 512GB para guardar tudo. O iPhone 14 Pro Max em Preto Espacial destaca a estética industrial premium em aço cirúrgico da Apple.",
     specs: {
       chip: "A16 Bionic",
       camera: "Tripla Pro: Principal de 48MP com sensor quad-pixel, Ultra-angular e Teleobjetiva",
@@ -761,26 +1037,103 @@ const products = [
   }
 ];
 
+// Variantes de armazenamento adicionais oficiais a serem injetadas dinamicamente
+const extraStorages = [
+  // iPhone 12
+  { model: "iPhone 12", storage: "64GB", price: 1400.00, baseStorage: "128GB" },
+  { model: "iPhone 12", storage: "256GB", price: 1800.00, baseStorage: "128GB" },
+  // iPhone 12 Pro
+  { model: "iPhone 12 Pro", storage: "256GB", price: 2100.00, baseStorage: "128GB" },
+  // iPhone 12 Pro Max
+  { model: "iPhone 12 Pro Max", storage: "128GB", price: 2000.00, baseStorage: "256GB" },
+  // iPhone 13
+  { model: "iPhone 13", storage: "256GB", price: 2300.00, baseStorage: "128GB" },
+  // iPhone 13 Pro
+  { model: "iPhone 13 Pro", storage: "256GB", price: 2800.00, baseStorage: "128GB" },
+  // iPhone 13 Pro Max
+  { model: "iPhone 13 Pro Max", storage: "128GB", price: 2700.00, baseStorage: "256GB" },
+  // iPhone 14
+  { model: "iPhone 14", storage: "256GB", price: 2600.00, baseStorage: "128GB" },
+  // iPhone 14 Plus
+  { model: "iPhone 14 Plus", storage: "256GB", price: 2800.00, baseStorage: "128GB" },
+  // iPhone 14 Pro Max
+  { model: "iPhone 14 Pro Max", storage: "512GB", price: 4200.00, baseStorage: "256GB" },
+  // iPhone 15
+  { model: "iPhone 15", storage: "256GB", price: 3200.00, baseStorage: "128GB", condition: "seminovo" },
+  { model: "iPhone 15", storage: "256GB", price: 4400.00, baseStorage: "128GB", condition: "lacrado" },
+  // iPhone 15 Pro
+  { model: "iPhone 15 Pro", storage: "256GB", price: 4100.00, baseStorage: "128GB" },
+  { model: "iPhone 15 Pro", storage: "512GB", price: 4500.00, baseStorage: "128GB" },
+  // iPhone 15 Pro Max
+  { model: "iPhone 15 Pro Max", storage: "512GB", price: 4900.00, baseStorage: "256GB" },
+  // iPhone 16
+  { model: "iPhone 16", storage: "256GB", price: 4250.00, baseStorage: "128GB", condition: "seminovo" },
+  { model: "iPhone 16", storage: "256GB", price: 5300.00, baseStorage: "128GB", condition: "lacrado" },
+  // iPhone 16 Pro
+  { model: "iPhone 16 Pro", storage: "256GB", price: 5200.00, baseStorage: "128GB" },
+  { model: "iPhone 16 Pro", storage: "512GB", price: 5800.00, baseStorage: "128GB" },
+  // iPhone 16 Pro Max
+  { model: "iPhone 16 Pro Max", storage: "128GB", price: 4900.00, baseStorage: "256GB" },
+  { model: "iPhone 16 Pro Max", storage: "512GB", price: 5800.00, baseStorage: "256GB" },
+  // iPhone 17
+  { model: "iPhone 17", storage: "256GB", price: 6000.00, baseStorage: "128GB" },
+  // iPhone 17 Pro
+  { model: "iPhone 17 Pro", storage: "128GB", price: 7200.00, baseStorage: "256GB" },
+  { model: "iPhone 17 Pro", storage: "512GB", price: 8500.00, baseStorage: "256GB" },
+  // iPhone 17 Pro Max
+  { model: "iPhone 17 Pro Max", storage: "128GB", price: 8000.00, baseStorage: "256GB" },
+  { model: "iPhone 17 Pro Max", storage: "512GB", price: 9500.00, baseStorage: "256GB" }
+];
+
+// Injetar dinamicamente os armazenamentos extras
+extraStorages.forEach(rule => {
+  const bases = products.filter(p => 
+    p.model === rule.model && 
+    p.storage === rule.baseStorage && 
+    p.category === "iphone" &&
+    (!rule.condition || p.condition === rule.condition)
+  );
+
+  bases.forEach(base => {
+    const baseStorageClean = rule.baseStorage.replace('GB', '');
+    const newStorageClean = rule.storage.replace('GB', '');
+    const newId = base.id.replace(`-${baseStorageClean}-`, `-${newStorageClean}-`);
+    
+    const exists = products.some(p => p.id === newId);
+    if (!exists) {
+      const newProduct = {
+        ...base,
+        id: newId,
+        name: base.name.replace(rule.baseStorage, rule.storage),
+        price: rule.price,
+        storage: rule.storage
+      };
+      products.push(newProduct);
+    }
+  });
+});
+
 // Variantes de cores adicionais oficiais a serem injetadas dinamicamente
 const extraVariants = [
   // iPhone XR
   { model: "iPhone Xr", color: "Branco", colorHex: "#F0EFEA", images: ["assets/images/iphonexr-branco.webp", "assets/images/iphonexr-branco2.webp", "assets/images/iphonexr-branco3.webp", "assets/images/iphonexr-branco4.webp"] },
   { model: "iPhone Xr", color: "Vermelho", colorHex: "#BA0C2F", images: ["assets/images/iphonexr-vermelho.webp", "assets/images/iphonexr-vermelho2.webp", "assets/images/iphonexr-vermelho3.webp", "assets/images/iphonexr-vermelho4.webp"] },
-  { model: "iPhone Xr", color: "Azul", colorHex: "#4C708C" },
-  { model: "iPhone Xr", color: "Coral", colorHex: "#FF6F61" },
-  { model: "iPhone Xr", color: "Amarelo", colorHex: "#FFE17D" },
-
+  { model: "iPhone Xr", color: "Azul", colorHex: "#4C708C", inStock: false },
+  { model: "iPhone Xr", color: "Coral", colorHex: "#FF6F61", inStock: false },
+  { model: "iPhone Xr", color: "Amarelo", colorHex: "#FFE17D", inStock: false },
+ 
   // iPhone 11
-  { model: "iPhone 11", color: "Preto", colorHex: "#1C1D21" },
-  { model: "iPhone 11", color: "Verde", colorHex: "#ADE3C8" },
-  { model: "iPhone 11", color: "Roxo", colorHex: "#D1C4E9" },
-  { model: "iPhone 11", color: "Amarelo", colorHex: "#FFE17D" },
-  { model: "iPhone 11", color: "Vermelho", colorHex: "#BA0C2F" },
-
-  // iPhone 11 Pro Max
-  { model: "iPhone 11 Pro Max", color: "Prateado", colorHex: "#DDDDDD" },
-  { model: "iPhone 11 Pro Max", color: "Dourado", colorHex: "#F5E1C3" },
-  { model: "iPhone 11 Pro Max", color: "Verde da Meia-noite", colorHex: "#4F5D53" },
+  { model: "iPhone 11", color: "Preto", colorHex: "#1C1D21", images: ["assets/images/iphone11-preto.webp", "assets/images/iphone11-preto2.webp", "assets/images/iphone11-preto3.webp", "assets/images/iphone11-preto4.webp"] },
+  { model: "iPhone 11", color: "Vermelho", colorHex: "#BA0C2F", images
+: ["assets/images/iphone11-vermelho.webp", "assets/images/iphone11-vermelho2.webp", "assets/images/iphone11-vermelho3.webp", "assets/images/iphone11-vermelho4.webp"] },
+  { model: "iPhone 11", color: "Verde", colorHex: "#ADE3C8", inStock: false },
+  { model: "iPhone 11", color: "Roxo", colorHex: "#D1C4E9", inStock: false },
+  { model: "iPhone 11", color: "Amarelo", colorHex: "#FFE17D", inStock: false },
+ 
+  // iPhone 11 Pro Max 
+  { model: "iPhone 11 Pro Max", color: "Dourado", colorHex: "#F5E1C3", images: ["assets/images/11promax-dourado.webp", "assets/images/11promax-dourado2.webp", "assets/images/11promax-dourado3.webp", "assets/images/11promax-dourado4.webp"] },
+  { model: "iPhone 11 Pro Max", color: "Prateado", colorHex: "#DDDDDD", inStock: false },
+  { model: "iPhone 11 Pro Max", color: "Verde da Meia-noite", colorHex: "#4F5D53", inStock: false },
 
   // iPhone 12
   { model: "iPhone 12", color: "Preto", colorHex: "#1C1D21" },
@@ -882,12 +1235,19 @@ const extraVariants = [
 
 // Injetar dinamicamente as variantes extras baseando-se nos modelos base correspondentes
 extraVariants.forEach(variant => {
-  const base = products.find(p => p.model === variant.model && p.category === "iphone");
+  // Encontrar TODOS os produtos base cadastrados estaticamente para este modelo
+  const bases = products.filter(p => p.model === variant.model && p.category === "iphone");
   
-  if (base) {
-    const colorExists = products.some(p => p.model === variant.model && p.color.toLowerCase() === variant.color.toLowerCase());
+  bases.forEach(base => {
+    // Verificar se já existe a variante para esta cor e armazenamento específicos
+    const colorAndStorageExists = products.some(p => 
+      p.model === variant.model && 
+      p.color.toLowerCase() === variant.color.toLowerCase() && 
+      p.storage === base.storage
+    );
     
-    if (!colorExists) {
+    if (!colorAndStorageExists) {
+      // Isolar o path do ID antes da cor (ex: "iphone-11-64-" ou "iphone-11-128-")
       const cleanModelPath = base.id.substring(0, base.id.lastIndexOf('-') + 1);
       const colorId = variant.color.toLowerCase().replace(/\s+/g, '-');
       const newId = `${cleanModelPath}${colorId}`;
@@ -899,10 +1259,10 @@ extraVariants.forEach(variant => {
         color: variant.color,
         colorHex: variant.colorHex,
         images: variant.images || ["assets/images/iphocell.png"], // Usa as imagens customizadas se existirem, senão usa a foto provisória da iphocell
-        inStock: true
+        inStock: variant.inStock !== undefined ? variant.inStock : true
       };
       
       products.push(newVariant);
     }
-  }
+  });
 });
