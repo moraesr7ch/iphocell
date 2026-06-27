@@ -875,6 +875,29 @@ const products = [
     }
   },
   {
+    id: "ipad-pro-11-128-rosa",
+    name: "iPad Pro 11\" 128GB Wi-Fi Rosa",
+    model: "iPad",
+    condition: "seminovo",
+    price: 2750.00,
+    installments: 12,
+    storage: "128GB",
+    color: "Rosa",
+    colorHex: "#F4B3C2",
+    category: "ipad",
+    images: ["assets/images/ipad11-rosa.webp", "assets/images/ipad11-2.webp", "assets/images/ipad11-3.webp", "assets/images/ipad11-4.webp"],
+    inStock: true,
+    isNew: false,
+    description: "Desempenho assombroso com a tela Liquid Retina de 11 polegadas de 120Hz, chip poderoso para tarefas pesadas, compatibilidade com Apple Pencil e teclado Magic Keyboard.",
+    specs: {
+      chip: "M1 Apple Silicon",
+      camera: "Principal 12MP + Ultra-angular 10MP com Scanner LiDAR de alta precisão",
+      battery: "Até 10 horas de navegação na internet via Wi-Fi",
+      screen: "Liquid Retina de 11 polegadas com ProMotion (120Hz) e True Tone",
+      os: "iPadOS 18 compatível"
+    }
+  },
+  {
     id: "apple-watch-s9-novo",
     name: "Apple Watch Series 9 GPS 45mm",
     model: "Apple Watch",
@@ -921,11 +944,11 @@ const products = [
     }
   },
   {
-    id: "carregador-20w-apple",
-    name: "Carregador USB-C de 20W Apple",
+    id: "cabo-usbc-apple",
+    name: "Cabo USB-C de Recarga Apple (1m)",
     model: "Acessórios",
     condition: "novo",
-    price: 150.00,
+    price: 45.00,
     installments: 6,
     storage: "N/A",
     color: "Branco",
@@ -934,7 +957,30 @@ const products = [
     images: ["assets/images/cabo-usb.webp", "assets/images/cabo-usb2.webp"],
     inStock: true, 
     isNew: true,
-    description: "O carregador USB-C de 20W da Apple é rápido e eficiente, ideal para usar em casa, no trabalho ou onde você estiver. Compatível com qualquer dispositivo com porta USB-C.",
+    description: "Cabo de recarga com conectores USB-C em ambas as pontas. Ideal para carregar, sincronizar e transferir dados entre dispositivos USB-C com velocidade e segurança.",
+    specs: {
+      chip: "N/A",
+      camera: "N/A",
+      battery: "N/A",
+      screen: "N/A",
+      os: "Conexão USB-C"
+    }
+  },
+  {
+    id: "carregador-20w-apple",
+    name: "Carregador iPhone, iPad, Apple Watch e AirPods Apple USB-C – 20W",
+    model: "Acessórios",
+    condition: "novo",
+    price: 199.00,
+    installments: 6,
+    storage: "N/A",
+    color: "Branco",
+    colorHex: "#FFFFFF",
+    category: "acessorios",
+    images: ["assets/images/fonte.webp", "assets/images/fonte2.webp", "assets/images/fonte3.webp","assets/images/iphocell.png"],
+    inStock: true,  
+    isNew: true,
+    description: "O adaptador de energia Apple USB-C de 20W oferece recarga rápida e eficiente. Ideal para usar em casa, no trabalho ou onde você estiver. Compatível com qualquer dispositivo com porta USB-C.",
     specs: {
       chip: "N/A",
       camera: "N/A",
@@ -990,11 +1036,11 @@ const products = [
     }
   },
   {
-    id: "capa-silicone-magsafe",
-    name: "Capa de Silicone com MagSafe",
+    id: "capa-silicone",
+    name: "Capa de Silicone",
     model: "Acessórios",
     condition: "novo",
-    price: 120.00,
+    price: 20.00,
     installments: 6,
     storage: "N/A",
     color: "Preta",
