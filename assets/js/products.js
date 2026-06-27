@@ -1036,9 +1036,9 @@ const products = [
     }
   },
   {
-    id: "capa-silicone",
+    id: "capa-silicone-preta",
     name: "Capa de Silicone",
-    model: "Acessórios",
+    model: "Capa de Silicone",
     condition: "novo",
     price: 20.00,
     installments: 6,
@@ -1046,7 +1046,7 @@ const products = [
     color: "Preta",
     colorHex: "#1C1D21",
     category: "acessorios",
-    images: ["assets/images/capinha16promax-magsafe.webp", "assets/images/capinha16promax-magsafe2.webp", "assets/images/capinha16promax-magsafe3.webp", "assets/images/capinha16promax-magsafe4.webp"], 
+    images: ["assets/images/capinha16promax-magsafe.webp"], 
     inStock: true,
     isNew: true,
     description: "Criada pela Apple, a capa de silicone oferece toque sedoso e proteção robusta contra quedas, com suporte total ao MagSafe.",
@@ -1055,7 +1055,7 @@ const products = [
       camera: "N/A",
       battery: "N/A",
       screen: "N/A",
-      os: "Preto · Branco · Azul · Verde · Rosa · Vermelho · Lilás · Bege"
+      os: "iPhone XR ao 16"
     }
   },
   {
@@ -1275,13 +1275,22 @@ const extraVariants = [
  
   // iPhone 17 Pro Max
   { model: "iPhone 17 Pro Max", color: "Prateado", colorHex: "#C0C0C0", images: ["assets/images/17promax-prata.webp", "assets/images/17pro-prata2.webp", "assets/images/17pro-prata3.webp", "assets/images/17pro-prata4.webp"] },
-  { model: "iPhone 17 Pro Max", color: "Azul-intenso", colorHex: "#101F35", images: ["assets/images/17promax-az.webp", "assets/images/17pro-az2.webp", "assets/images/17pro-az3.webp", "assets/images/17pro-az4.webp"] }
+  { model: "iPhone 17 Pro Max", color: "Azul-intenso", colorHex: "#101F35", images: ["assets/images/17promax-az.webp", "assets/images/17pro-az2.webp", "assets/images/17pro-az3.webp", "assets/images/17pro-az4.webp"] },
+
+  // Capa de Silicone
+  { model: "Capa de Silicone", color: "Branco", colorHex: "#FFFFFF", images: ["assets/images/capinha-branca.webp"] },
+  { model: "Capa de Silicone", color: "Azul", colorHex: "#3A86C8", images: ["assets/images/capinha-azul.webp"] },
+  { model: "Capa de Silicone", color: "Verde", colorHex: "#5E9E7A", images: ["assets/images/capinha-verde.webp"] },
+  { model: "Capa de Silicone", color: "Rosa", colorHex: "#ECA3B4", images: ["assets/images/capinha-rosa.webp"] },
+  { model: "Capa de Silicone", color: "Vermelho", colorHex: "#C83B3B", images: ["assets/images/capinha-vermelha.webp"] },
+  { model: "Capa de Silicone", color: "Lilás", colorHex: "#D3C2E8", images: ["assets/images/capinha-lilas.webp"] },
+  { model: "Capa de Silicone", color: "Bege", colorHex: "#EAE3D2", images: ["assets/images/capinha-bege.webp"] }
 ];
 
 // Injetar dinamicamente as variantes extras baseando-se nos modelos base correspondentes
 extraVariants.forEach(variant => {
   // Encontrar TODOS os produtos base cadastrados estaticamente para este modelo
-  const bases = products.filter(p => p.model === variant.model && p.category === "iphone");
+  const bases = products.filter(p => p.model === variant.model && (p.category === "iphone" || p.category === "acessorios"));
   
   bases.forEach(base => {
     // Verificar se já existe a variante para esta cor e armazenamento específicos
@@ -1297,13 +1306,14 @@ extraVariants.forEach(variant => {
       const colorId = variant.color.toLowerCase().replace(/\s+/g, '-');
       const newId = `${cleanModelPath}${colorId}`;
       
+      const storagePart = base.storage && base.storage !== 'N/A' ? `${base.storage} ` : '';
       const newVariant = {
         ...base,
         id: newId,
-        name: `${base.model} ${base.storage} ${variant.color}`,
+        name: `${base.model} ${storagePart}${variant.color}`,
         color: variant.color,
         colorHex: variant.colorHex,
-        images: variant.images || ["assets/images/iphocell.png"], // Usa as imagens customizadas se existirem, senão usa a foto provisória da iphocell
+        images: variant.images || ["assets/images/iphocell.jpg"], // Usa as imagens customizadas se existirem, senão usa a foto provisória da iphocell
         inStock: variant.inStock !== undefined ? variant.inStock : true
       };
       
