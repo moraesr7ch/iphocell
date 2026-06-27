@@ -73,9 +73,27 @@ function getProductCardMetaHTML(product, forceShowColor = false) {
                                (product.id.includes('capa') || product.id.includes('pelicula'));
                                
   if (isUniversalAccessory) {
-    return `
-      <div class="product-card-meta" style="color: var(--text-muted); font-size: 0.8rem; margin-top: 6px; display: flex; align-items: center; gap: 4px;">
+    let metaHtml = '';
+    
+    // Se o produto possuir cores listadas (como a capa de silicone)
+    if (product.colorsAvailable) {
+      metaHtml += `
+        <div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 4px; line-height: 1.3;">
+          <span>${sanitizeHTML(product.colorsAvailable)}</span>
+        </div>
+      `;
+    }
+    
+    // Compatibilidade (specs.os)
+    metaHtml += `
+      <div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 4px; line-height: 1.3; font-weight: 500;">
         <span>${sanitizeHTML(product.specs.os)}</span>
+      </div>
+    `;
+    
+    return `
+      <div class="product-card-meta-accessory-group" style="display: flex; flex-direction: column;">
+        ${metaHtml}
       </div>
     `;
   }
@@ -821,8 +839,28 @@ function initProductDetailPage() {
                                  product.specs.os !== 'N/A' && 
                                  (product.id.includes('capa') || product.id.includes('pelicula'));
     if (isUniversalAccessory) {
-      compEl.innerHTML = `${sanitizeHTML(product.specs.os)}`;
-      compEl.style.display = 'flex';
+      let detailMetaHtml = '';
+      
+      // Se houver cores disponíveis
+      if (product.colorsAvailable) {
+        detailMetaHtml += `
+          <div class="accessory-colors-line" style="line-height: 1.4; margin-bottom: 4px;">
+            ${sanitizeHTML(product.colorsAvailable)}
+          </div>
+        `;
+      }
+      
+      // Compatibilidade
+      detailMetaHtml += `
+        <div class="accessory-compatibility-line" style="font-weight: 500; line-height: 1.4;">
+          ${sanitizeHTML(product.specs.os)}
+        </div>
+      `;
+      
+      compEl.innerHTML = detailMetaHtml;
+      compEl.style.display = 'block';
+      compEl.style.flexDirection = 'column';
+      compEl.style.alignItems = 'flex-start';
     } else {
       compEl.style.display = 'none';
     }
@@ -878,19 +916,25 @@ function initProductDetailPage() {
 
   const thumbsContainer = document.querySelector('.gallery-thumbnails');
   if (thumbsContainer) {
-    let thumbsHtml = '';
-    // Gerar miniaturas simuladas repetindo as imagens disponíveis para preencher as 4 miniaturas
-    const imagesToUse = [...product.images, ...product.images, ...product.images, ...product.images].slice(0, 4);
-    
-    imagesToUse.forEach((img, idx) => {
-      const activeClass = idx === 0 ? 'active' : '';
-      thumbsHtml += `
-        <button class="gallery-thumb-btn ${activeClass}" onclick="changeGalleryImage(this, '${sanitizeHTML(img)}')">
-          <img src="${sanitizeHTML(img)}" alt="Miniautra ${idx + 1}">
-        </button>
-      `;
-    });
-    thumbsContainer.innerHTML = thumbsHtml;
+    const isSiliconeCase = product.id.includes('capa-silicone');
+    if (isSiliconeCase || !product.images || product.images.length <= 1) {
+      thumbsContainer.style.display = 'none';
+    } else {
+      thumbsContainer.style.display = '';
+      let thumbsHtml = '';
+      // Gerar miniaturas simuladas repetindo as imagens disponíveis para preencher as 4 miniaturas
+      const imagesToUse = [...product.images, ...product.images, ...product.images, ...product.images].slice(0, 4);
+      
+      imagesToUse.forEach((img, idx) => {
+        const activeClass = idx === 0 ? 'active' : '';
+        thumbsHtml += `
+          <button class="gallery-thumb-btn ${activeClass}" onclick="changeGalleryImage(this, '${sanitizeHTML(img)}')">
+            <img src="${sanitizeHTML(img)}" alt="Miniatura ${idx + 1}">
+          </button>
+        `;
+      });
+      thumbsContainer.innerHTML = thumbsHtml;
+    }
   }
 
   // Função global de alteração de imagem da galeria
@@ -906,30 +950,43 @@ function initProductDetailPage() {
   // Seletor de cores dinâmico a partir das variantes do modelo
   const colorList = document.querySelector('.color-variant-list');
   if (colorList) {
-    // Agrupa por cor para evitar bolinhas duplicadas se houver variantes com mesma cor mas armazenamentos diferentes
-    const uniqueColors = [];
-    const seenColors = new Set();
-    variants.forEach(v => {
-      if (v.color && !seenColors.has(v.color.toLowerCase())) {
-        seenColors.add(v.color.toLowerCase());
-        uniqueColors.push(v);
-      }
-    });
-
-    let colorHtml = '';
-    uniqueColors.forEach(v => {
-      const isActive = v.color.toLowerCase() === product.color.toLowerCase() ? 'active' : '';
-      const isOutOfStock = !v.inStock ? 'out-of-stock' : '';
-      // 🔒 Só permite o clique de navegação se o produto estiver em estoque (evita navegação para variantes esgotadas)
-      const clickAction = v.inStock ? `onclick="navigateToProduct('${v.id}')"` : '';
+    // 🔒 SEGURANÇA/REQUISITO: Oculta o seletor de cores para acessórios que não sejam a capinha de silicone
+    const shouldShowColors = product.category !== 'acessorios' || product.id.includes('capa-silicone');
+    const colorWrapper = colorList.closest('.selector-group');
+    
+    if (!shouldShowColors) {
+      if (colorWrapper) colorWrapper.style.display = 'none';
+    } else {
+      if (colorWrapper) colorWrapper.style.display = 'block';
       
-      colorHtml += `
-        <div class="color-variant-dot ${isActive} ${isOutOfStock}" style="--color-hex: ${v.colorHex}" ${clickAction} role="button" aria-label="Cor ${sanitizeHTML(v.color)} ${!v.inStock ? '(Sem Estoque)' : ''}">
-          <span class="color-name-tooltip">${sanitizeHTML(v.color)} ${!v.inStock ? '(Sem estoque)' : ''}</span>
-        </div>
-      `;
-    });
-    colorList.innerHTML = colorHtml;
+      // Agrupa por cor para evitar bolinhas duplicadas se houver variantes com mesma cor mas armazenamentos diferentes
+      const uniqueColors = [];
+      const seenColors = new Set();
+      variants.forEach(v => {
+        const isSiliconeCase = v.id.includes('capa-silicone');
+        if (product.category === 'acessorios' && !isSiliconeCase) return;
+
+        if (v.color && !seenColors.has(v.color.toLowerCase())) {
+          seenColors.add(v.color.toLowerCase());
+          uniqueColors.push(v);
+        }
+      });
+
+      let colorHtml = '';
+      uniqueColors.forEach(v => {
+        const isActive = v.color.toLowerCase() === product.color.toLowerCase() ? 'active' : '';
+        const isOutOfStock = !v.inStock ? 'out-of-stock' : '';
+        // 🔒 Só permite o clique de navegação se o produto estiver em estoque (evita navegação para variantes esgotadas)
+        const clickAction = v.inStock ? `onclick="navigateToProduct('${v.id}')"` : '';
+        
+        colorHtml += `
+          <div class="color-variant-dot ${isActive} ${isOutOfStock}" style="--color-hex: ${v.colorHex}" ${clickAction} role="button" aria-label="Cor ${sanitizeHTML(v.color)} ${!v.inStock ? '(Sem Estoque)' : ''}">
+            <span class="color-name-tooltip">${sanitizeHTML(v.color)} ${!v.inStock ? '(Sem estoque)' : ''}</span>
+          </div>
+        `;
+      });
+      colorList.innerHTML = colorHtml;
+    }
   }
 
   // Seletor de armazenamento dinâmico a partir das variantes do modelo
@@ -959,7 +1016,7 @@ function initProductDetailPage() {
     storageList.innerHTML = storageHtml;
   } else if (storageList) {
     // Ocultar wrapper do seletor caso não se aplique (ex: acessórios)
-    const storageWrapper = storageList.closest('.product-variant-selector');
+    const storageWrapper = storageList.closest('.selector-group');
     if (storageWrapper) storageWrapper.style.display = 'none';
   }
 
