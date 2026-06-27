@@ -859,10 +859,10 @@ const products = [
     price: 2750.00,
     installments: 12,
     storage: "128GB",
-    color: "Cinza Espacial",
+    color: "Prata",
     colorHex: "#4E5052",
     category: "ipad",
-    images: ["assets/images/ipad11-cinza.webp", "assets/images/iphocell.jpg"],
+    images: ["assets/images/ipad11-cinza.webp", "assets/images/ipad11-2.webp", "assets/images/ipad11-3.webp", "assets/images/ipad11-4.webp"],
     inStock: true,
     isNew: false,
     description: "Desempenho assombroso com a tela Liquid Retina de 11 polegadas de 120Hz, chip poderoso para tarefas pesadas, compatibilidade com Apple Pencil e teclado Magic Keyboard.",
@@ -899,7 +899,7 @@ const products = [
   },
   {
     id: "capinha-transparente",
-    name: "Capinha Transparente MagSafe / todos os modelos",
+    name: "Capinha Transparente MagSafe",
     model: "Acessórios",
     condition: "novo",
     price: 35.00,
@@ -911,13 +911,13 @@ const products = [
     images: ["assets/images/capinhaiphone15-transparente.webp", "assets/images/capinha15-transpa2.webp", "assets/images/capinha15-transpa3.webp", "assets/images/capinha15-transpa4.webp"],
     inStock: true,
     isNew: false,
-    description: "Fina, leve e fácil de segurar, esta capa protege o iPhone 15 sem esconder o brilho das cores. Possui ímãs integrados para encaixe perfeito do MagSafe.",
+    description: "Fina, leve e fácil de segurar, esta capa protege o iPhone sem esconder o brilho das cores. Possui ímãs integrados para encaixe perfeito do MagSafe.",
     specs: {
       chip: "N/A",
       camera: "N/A",
       battery: "N/A",
       screen: "N/A",
-      os: "Compatível com iPhone 15"
+      os: "iPhone XR ao 16"
     }
   },
   {
@@ -990,31 +990,31 @@ const products = [
     }
   },
   {
-    id: "capa-silicone-16promax-preta",
-    name: "Capa de Silicone com MagSafe iPhone 16 Pro Max Preta",
+    id: "capa-silicone-magsafe",
+    name: "Capa de Silicone com MagSafe",
     model: "Acessórios",
     condition: "novo",
     price: 120.00,
     installments: 6,
     storage: "N/A",
-    color: "Preto",
+    color: "Preta",
     colorHex: "#1C1D21",
     category: "acessorios",
     images: ["assets/images/capinha16promax-magsafe.webp", "assets/images/capinha16promax-magsafe2.webp", "assets/images/capinha16promax-magsafe3.webp", "assets/images/capinha16promax-magsafe4.webp"], 
     inStock: true,
     isNew: true,
-    description: "Criada pela Apple para complementar o iPhone 16 Pro Max, a capa de silicone oferece toque sedoso e proteção robusta contra quedas, com suporte total ao MagSafe.",
+    description: "Criada pela Apple, a capa de silicone oferece toque sedoso e proteção robusta contra quedas, com suporte total ao MagSafe.",
     specs: {
       chip: "N/A",
       camera: "N/A",
       battery: "N/A",
       screen: "N/A",
-      os: "Compatível com iPhone 16 Pro Max"
+      os: "Preto · Branco · Azul · Verde · Rosa · Vermelho · Lilás · Bege"
     }
   },
   {
     id: "pelicula-vidro-3d-premium",
-    name: "Película de Vidro 3D Premium / todos os modelos",
+    name: "Película de Vidro 3D Premium",
     model: "Acessórios",
     condition: "novo",
     price: 15.00,
@@ -1032,7 +1032,7 @@ const products = [
       camera: "N/A",
       battery: "N/A",
       screen: "N/A",
-      os: "Compatível com linhas iPhone 11 ao 16"
+      os: "iPhone XR ao 16"
     }
   }
 ];
