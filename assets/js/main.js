@@ -41,6 +41,26 @@ document.addEventListener('DOMContentLoaded', () => {
   initWordAnimations();
 });
 
+// Agrupa produtos por modelo para a categoria iPhone
+function getGroupedProducts(productsList) {
+  const grouped = [];
+  const seenModels = new Set();
+  
+  productsList.forEach(product => {
+    if (product.category === 'iphone') {
+      if (!seenModels.has(product.model)) {
+        seenModels.add(product.model);
+        grouped.push(product);
+      }
+    } else {
+      // Para outras categorias (ipad, apple watch, acessorios), não agrupamos
+      grouped.push(product);
+    }
+  });
+  
+  return grouped;
+}
+
 /* ==========================================================================
    1. FUNCIONALIDADES GLOBAIS
    ========================================================================== */
@@ -226,9 +246,9 @@ function initHomePage() {
   const accessoriesContainer = document.querySelector('.accessories-scroll-container');
   if (!scrollContainer) return;
 
-  // Filtrar apenas iPhones mais recentes (Destaques)
+  // Filtrar apenas iPhones mais recentes (Destaques) e agrupar por modelo
   const featuredModels = ["iPhone 13", "iPhone 14", "iPhone 15", "iPhone 16"];
-  const featured = products.filter(p => featuredModels.includes(p.model));
+  const featured = getGroupedProducts(products.filter(p => featuredModels.includes(p.model)));
 
   // Inicializa o Flip 3D do celular quebrado para consertado em loop contínuo
   const assistanceSection = document.getElementById('assistance-premium-section');
@@ -291,10 +311,10 @@ function initHomePage() {
         </div>
         <div class="product-card-content">
           <div>
-            <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${safeName}</h3>
-            ${(product.color && product.color !== 'N/A') || (product.storage && product.storage !== 'N/A') ? `
+            <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${product.category === 'iphone' ? sanitizeHTML(product.model) : safeName}</h3>
+            ${((product.color && product.color !== 'N/A' && product.category !== 'iphone') || (product.storage && product.storage !== 'N/A')) ? `
             <div class="product-card-meta">
-              ${product.color && product.color !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
+              ${product.color && product.color !== 'N/A' && product.category !== 'iphone' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
               ${product.storage && product.storage !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>` : ''}
             </div>` : ''}
           </div>
@@ -643,12 +663,15 @@ function initCatalogPage() {
       filtered.reverse();
     }
 
+    // Agrupar produtos por modelo (categoria iPhone) antes de contar e renderizar
+    const groupedFiltered = getGroupedProducts(filtered);
+
     // Contador de resultados
     if (resultsCountText) {
-      resultsCountText.textContent = filtered.length;
+      resultsCountText.textContent = groupedFiltered.length;
     }
 
-    renderCatalogGrid(filtered);
+    renderCatalogGrid(groupedFiltered);
   }
 
   function renderCatalogGrid(items) {
@@ -692,10 +715,10 @@ function initCatalogPage() {
           </div>
           <div class="product-card-content">
             <div>
-              <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${safeName}</h3>
-            ${(product.color && product.color !== 'N/A') || (product.storage && product.storage !== 'N/A') ? `
+              <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${product.category === 'iphone' ? sanitizeHTML(product.model) : safeName}</h3>
+            ${((product.color && product.color !== 'N/A' && product.category !== 'iphone') || (product.storage && product.storage !== 'N/A')) ? `
             <div class="product-card-meta">
-              ${product.color && product.color !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
+              ${product.color && product.color !== 'N/A' && product.category !== 'iphone' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
               ${product.storage && product.storage !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>` : ''}
             </div>` : ''}
             </div>
@@ -769,12 +792,40 @@ function initProductDetailPage() {
   
   // Disponibilidade em estoque
   const stockText = document.getElementById('detail-stock-status');
-  if (product.condition === 'seminovo') {
-    stockText.className = 'stock-status'; // vermelho para última unidade
-    stockText.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> Última unidade disponível!`;
+  const detailAddToCartBtn = document.getElementById('detail-add-to-cart');
+  const detailBuyNowBtn = document.getElementById('detail-buy-now');
+
+  if (product.inStock === false) {
+    if (stockText) {
+      stockText.className = 'stock-status out-of-stock';
+      stockText.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg> Esgotado (Sem estoque no momento)`;
+      stockText.style.color = '#ef4444'; // Vermelho slate
+    }
+    
+    // Desabilitar botões
+    if (detailAddToCartBtn) {
+      detailAddToCartBtn.disabled = true;
+      detailAddToCartBtn.textContent = 'Sem estoque';
+      detailAddToCartBtn.style.opacity = '0.5';
+      detailAddToCartBtn.style.cursor = 'not-allowed';
+    }
+    if (detailBuyNowBtn) {
+      detailBuyNowBtn.disabled = true;
+      detailBuyNowBtn.textContent = 'Sem estoque';
+      detailBuyNowBtn.style.opacity = '0.5';
+      detailBuyNowBtn.style.cursor = 'not-allowed';
+    }
   } else {
-    stockText.className = 'stock-status in-stock';
-    stockText.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Em estoque (Pronta Entrega)`;
+    if (stockText) {
+      stockText.style.color = '';
+      if (product.condition === 'seminovo') {
+        stockText.className = 'stock-status'; // vermelho para última unidade
+        stockText.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> Última unidade disponível!`;
+      } else {
+        stockText.className = 'stock-status in-stock';
+        stockText.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Em estoque (Pronta Entrega)`;
+      }
+    }
   }
 
   // Preço e parcelamento
@@ -811,37 +862,85 @@ function initProductDetailPage() {
     mainImage.src = imgSrc;
   };
 
-  // Seletor de cores
+  // Buscar todas as variantes do mesmo modelo e categoria
+  const variants = products.filter(p => p.model === product.model && p.category === product.category);
+
+  // Seletor de cores dinâmico a partir das variantes do modelo
   const colorList = document.querySelector('.color-variant-list');
   if (colorList) {
-    colorList.style.setProperty('--color-hex', product.colorHex);
-    colorList.innerHTML = `
-      <div class="color-variant-dot active" style="--color-hex: ${product.colorHex}">
-        <span class="color-name-tooltip">${sanitizeHTML(product.color)}</span>
-      </div>
-    `;
+    // Agrupa por cor para evitar bolinhas duplicadas se houver variantes com mesma cor mas armazenamentos diferentes
+    const uniqueColors = [];
+    const seenColors = new Set();
+    variants.forEach(v => {
+      if (v.color && !seenColors.has(v.color.toLowerCase())) {
+        seenColors.add(v.color.toLowerCase());
+        uniqueColors.push(v);
+      }
+    });
+
+    let colorHtml = '';
+    uniqueColors.forEach(v => {
+      const isActive = v.color.toLowerCase() === product.color.toLowerCase() ? 'active' : '';
+      const isOutOfStock = !v.inStock ? 'out-of-stock' : '';
+      // 🔒 Só permite o clique de navegação se o produto estiver em estoque (evita navegação para variantes esgotadas)
+      const clickAction = v.inStock ? `onclick="navigateToProduct('${v.id}')"` : '';
+      
+      colorHtml += `
+        <div class="color-variant-dot ${isActive} ${isOutOfStock}" style="--color-hex: ${v.colorHex}" ${clickAction} role="button" aria-label="Cor ${sanitizeHTML(v.color)} ${!v.inStock ? '(Sem Estoque)' : ''}">
+          <span class="color-name-tooltip">${sanitizeHTML(v.color)} ${!v.inStock ? '(Sem estoque)' : ''}</span>
+        </div>
+      `;
+    });
+    colorList.innerHTML = colorHtml;
   }
 
-  // Seletor de armazenamento
+  // Seletor de armazenamento dinâmico a partir das variantes do modelo
   const storageList = document.querySelector('.storage-variant-list');
-  if (storageList) {
-    const storages = ["64GB", "128GB", "256GB", "512GB"];
+  const modelStorages = [];
+  const seenStorages = new Set();
+  
+  variants.forEach(v => {
+    if (v.storage && v.storage !== 'N/A' && !seenStorages.has(v.storage)) {
+      seenStorages.add(v.storage);
+      modelStorages.push(v.storage);
+    }
+  });
+
+  // Ordenar as capacidades de armazenamento (64GB < 128GB < 256GB < 512GB)
+  const storageOrder = { '64GB': 1, '128GB': 2, '256GB': 3, '512GB': 4, '1TB': 5 };
+  modelStorages.sort((a, b) => (storageOrder[a] || 9) - (storageOrder[b] || 9));
+
+  if (storageList && modelStorages.length > 0) {
     let storageHtml = '';
-    
-    storages.forEach(st => {
-      // iPhone 11 com 64GB ativo por padrão, outros modelos com 128GB ou 256GB ativos
+    modelStorages.forEach(st => {
       const isActive = product.storage === st ? 'active' : '';
       storageHtml += `
         <button class="storage-variant-btn ${isActive}" onclick="selectStorage(this, '${st}')">${st}</button>
       `;
     });
     storageList.innerHTML = storageHtml;
+  } else if (storageList) {
+    // Ocultar wrapper do seletor caso não se aplique (ex: acessórios)
+    const storageWrapper = storageList.closest('.product-variant-selector');
+    if (storageWrapper) storageWrapper.style.display = 'none';
   }
 
   window.selectStorage = function(btn, storage) {
-    document.querySelectorAll('.storage-variant-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    selectedStorage = storage;
+    // Tentar encontrar variante com mesmo modelo, cor e armazenamento
+    let target = products.find(p => p.model === product.model && p.category === product.category && p.color.toLowerCase() === product.color.toLowerCase() && p.storage === storage);
+    
+    // Se não houver na mesma cor, pegar a primeira variante desse modelo com esse armazenamento
+    if (!target) {
+      target = products.find(p => p.model === product.model && p.category === product.category && p.storage === storage);
+    }
+    
+    if (target) {
+      navigateToProduct(target.id);
+    } else {
+      document.querySelectorAll('.storage-variant-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedStorage = storage;
+    }
   };
 
   // Lógica das abas
