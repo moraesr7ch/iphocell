@@ -61,6 +61,40 @@ function getGroupedProducts(productsList) {
   return grouped;
 }
 
+// 🔒 SEGURANÇA: sanitiza e formata os metadados de cor e armazenamento ou compatibilidade de acessorios nos cards
+function getProductCardMetaHTML(product, forceShowColor = false) {
+  const safeColor = sanitizeHTML(product.color || '');
+  const safeStorage = sanitizeHTML(product.storage || '');
+  
+  const isUniversalAccessory = product.category === 'acessorios' && 
+                               product.specs && 
+                               product.specs.os && 
+                               product.specs.os !== 'N/A' && 
+                               (product.id.includes('capa') || product.id.includes('pelicula'));
+                               
+  if (isUniversalAccessory) {
+    return `
+      <div class="product-card-meta" style="color: var(--text-muted); font-size: 0.8rem; margin-top: 6px; display: flex; align-items: center; gap: 4px;">
+        <span>${sanitizeHTML(product.specs.os)}</span>
+      </div>
+    `;
+  }
+  
+  const hasColor = product.color && product.color !== 'N/A' && (forceShowColor || product.category !== 'iphone');
+  const hasStorage = product.storage && product.storage !== 'N/A';
+  
+  if (hasColor || hasStorage) {
+    return `
+      <div class="product-card-meta">
+        ${hasColor ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
+        ${hasStorage ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>` : ''}
+      </div>
+    `;
+  }
+  
+  return '';
+}
+
 /* ==========================================================================
    1. FUNCIONALIDADES GLOBAIS
    ========================================================================== */
@@ -312,11 +346,7 @@ function initHomePage() {
         <div class="product-card-content">
           <div>
             <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${product.category === 'iphone' ? sanitizeHTML(product.model) : safeName}</h3>
-            ${((product.color && product.color !== 'N/A' && product.category !== 'iphone') || (product.storage && product.storage !== 'N/A')) ? `
-            <div class="product-card-meta">
-              ${product.color && product.color !== 'N/A' && product.category !== 'iphone' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
-              ${product.storage && product.storage !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>` : ''}
-            </div>` : ''}
+            ${getProductCardMetaHTML(product, false)}
           </div>
           <div>
             <div class="product-card-price-row">
@@ -366,11 +396,7 @@ function initHomePage() {
           <div class="product-card-content">
             <div>
               <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${safeName}</h3>
-              ${(product.color && product.color !== 'N/A') || (product.storage && product.storage !== 'N/A') ? `
-              <div class="product-card-meta">
-                ${product.color && product.color !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
-                ${product.storage && product.storage !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>` : ''}
-              </div>` : ''}
+              ${getProductCardMetaHTML(product, true)}
             </div>
             <div>
               <div class="product-card-price-row">
@@ -716,11 +742,7 @@ function initCatalogPage() {
           <div class="product-card-content">
             <div>
               <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${product.category === 'iphone' ? sanitizeHTML(product.model) : safeName}</h3>
-            ${((product.color && product.color !== 'N/A' && product.category !== 'iphone') || (product.storage && product.storage !== 'N/A')) ? `
-            <div class="product-card-meta">
-              ${product.color && product.color !== 'N/A' && product.category !== 'iphone' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
-              ${product.storage && product.storage !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>` : ''}
-            </div>` : ''}
+              ${getProductCardMetaHTML(product, false)}
             </div>
             <div>
               <div class="product-card-price-row">
@@ -789,6 +811,22 @@ function initProductDetailPage() {
   badge.textContent = product.condition === 'novo' ? 'Novo' : product.condition === 'seminovo' ? 'Seminovo' : 'Lacrado';
 
   document.getElementById('detail-title').textContent = product.name;
+  
+  // Exibir a compatibilidade universal se for acessorio correspondente
+  const compEl = document.getElementById('detail-compatibility');
+  if (compEl) {
+    const isUniversalAccessory = product.category === 'acessorios' && 
+                                 product.specs && 
+                                 product.specs.os && 
+                                 product.specs.os !== 'N/A' && 
+                                 (product.id.includes('capa') || product.id.includes('pelicula'));
+    if (isUniversalAccessory) {
+      compEl.innerHTML = `${sanitizeHTML(product.specs.os)}`;
+      compEl.style.display = 'flex';
+    } else {
+      compEl.style.display = 'none';
+    }
+  }
   
   // Disponibilidade em estoque
   const stockText = document.getElementById('detail-stock-status');
@@ -1030,11 +1068,7 @@ function renderRelatedProducts(currentProduct) {
         <div class="product-card-content">
           <div>
             <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${safeName}</h3>
-            ${(product.color && product.color !== 'N/A') || (product.storage && product.storage !== 'N/A') ? `
-            <div class="product-card-meta">
-              ${product.color && product.color !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> ${safeColor}</span>` : ''}
-              ${product.storage && product.storage !== 'N/A' ? `<span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg> ${safeStorage}</span>` : ''}
-            </div>` : ''}
+            ${getProductCardMetaHTML(product, true)}
           </div>
           <div>
             <div class="product-card-price-row">

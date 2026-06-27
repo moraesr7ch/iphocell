@@ -859,10 +859,33 @@ const products = [
     price: 2750.00,
     installments: 12,
     storage: "128GB",
-    color: "Cinza Espacial",
+    color: "Prata",
     colorHex: "#4E5052",
     category: "ipad",
-    images: ["assets/images/ipad11-cinza.webp", "assets/images/iphocell.jpg"],
+    images: ["assets/images/ipad11-cinza.webp", "assets/images/ipad11-2.webp", "assets/images/ipad11-3.webp", "assets/images/ipad11-4.webp"],
+    inStock: true,
+    isNew: false,
+    description: "Desempenho assombroso com a tela Liquid Retina de 11 polegadas de 120Hz, chip poderoso para tarefas pesadas, compatibilidade com Apple Pencil e teclado Magic Keyboard.",
+    specs: {
+      chip: "M1 Apple Silicon",
+      camera: "Principal 12MP + Ultra-angular 10MP com Scanner LiDAR de alta precisão",
+      battery: "Até 10 horas de navegação na internet via Wi-Fi",
+      screen: "Liquid Retina de 11 polegadas com ProMotion (120Hz) e True Tone",
+      os: "iPadOS 18 compatível"
+    }
+  },
+  {
+    id: "ipad-pro-11-128-rosa",
+    name: "iPad Pro 11\" 128GB Wi-Fi Rosa",
+    model: "iPad",
+    condition: "seminovo",
+    price: 2750.00,
+    installments: 12,
+    storage: "128GB",
+    color: "Rosa",
+    colorHex: "#F4B3C2",
+    category: "ipad",
+    images: ["assets/images/ipad11-rosa.webp", "assets/images/ipad11-2.webp", "assets/images/ipad11-3.webp", "assets/images/ipad11-4.webp"],
     inStock: true,
     isNew: false,
     description: "Desempenho assombroso com a tela Liquid Retina de 11 polegadas de 120Hz, chip poderoso para tarefas pesadas, compatibilidade com Apple Pencil e teclado Magic Keyboard.",
@@ -899,7 +922,7 @@ const products = [
   },
   {
     id: "capinha-transparente",
-    name: "Capinha Transparente MagSafe / todos os modelos",
+    name: "Capinha Transparente MagSafe",
     model: "Acessórios",
     condition: "novo",
     price: 35.00,
@@ -911,21 +934,21 @@ const products = [
     images: ["assets/images/capinhaiphone15-transparente.webp", "assets/images/capinha15-transpa2.webp", "assets/images/capinha15-transpa3.webp", "assets/images/capinha15-transpa4.webp"],
     inStock: true,
     isNew: false,
-    description: "Fina, leve e fácil de segurar, esta capa protege o iPhone 15 sem esconder o brilho das cores. Possui ímãs integrados para encaixe perfeito do MagSafe.",
+    description: "Fina, leve e fácil de segurar, esta capa protege o iPhone sem esconder o brilho das cores. Possui ímãs integrados para encaixe perfeito do MagSafe.",
     specs: {
       chip: "N/A",
       camera: "N/A",
       battery: "N/A",
       screen: "N/A",
-      os: "Compatível com iPhone 15"
+      os: "iPhone XR ao 16"
     }
   },
   {
-    id: "carregador-20w-apple",
-    name: "Carregador USB-C de 20W Apple",
+    id: "cabo-usbc-apple",
+    name: "Cabo USB-C de Recarga Apple (1m)",
     model: "Acessórios",
     condition: "novo",
-    price: 150.00,
+    price: 45.00,
     installments: 6,
     storage: "N/A",
     color: "Branco",
@@ -934,7 +957,30 @@ const products = [
     images: ["assets/images/cabo-usb.webp", "assets/images/cabo-usb2.webp"],
     inStock: true, 
     isNew: true,
-    description: "O carregador USB-C de 20W da Apple é rápido e eficiente, ideal para usar em casa, no trabalho ou onde você estiver. Compatível com qualquer dispositivo com porta USB-C.",
+    description: "Cabo de recarga com conectores USB-C em ambas as pontas. Ideal para carregar, sincronizar e transferir dados entre dispositivos USB-C com velocidade e segurança.",
+    specs: {
+      chip: "N/A",
+      camera: "N/A",
+      battery: "N/A",
+      screen: "N/A",
+      os: "Conexão USB-C"
+    }
+  },
+  {
+    id: "carregador-20w-apple",
+    name: "Carregador iPhone, iPad, Apple Watch e AirPods Apple USB-C – 20W",
+    model: "Acessórios",
+    condition: "novo",
+    price: 199.00,
+    installments: 6,
+    storage: "N/A",
+    color: "Branco",
+    colorHex: "#FFFFFF",
+    category: "acessorios",
+    images: ["assets/images/fonte.webp", "assets/images/fonte2.webp", "assets/images/fonte3.webp","assets/images/iphocell.png"],
+    inStock: true,  
+    isNew: true,
+    description: "O adaptador de energia Apple USB-C de 20W oferece recarga rápida e eficiente. Ideal para usar em casa, no trabalho ou onde você estiver. Compatível com qualquer dispositivo com porta USB-C.",
     specs: {
       chip: "N/A",
       camera: "N/A",
@@ -990,31 +1036,31 @@ const products = [
     }
   },
   {
-    id: "capa-silicone-16promax-preta",
-    name: "Capa de Silicone com MagSafe iPhone 16 Pro Max Preta",
+    id: "capa-silicone",
+    name: "Capa de Silicone",
     model: "Acessórios",
     condition: "novo",
-    price: 120.00,
+    price: 20.00,
     installments: 6,
     storage: "N/A",
-    color: "Preto",
+    color: "Preta",
     colorHex: "#1C1D21",
     category: "acessorios",
     images: ["assets/images/capinha16promax-magsafe.webp", "assets/images/capinha16promax-magsafe2.webp", "assets/images/capinha16promax-magsafe3.webp", "assets/images/capinha16promax-magsafe4.webp"], 
     inStock: true,
     isNew: true,
-    description: "Criada pela Apple para complementar o iPhone 16 Pro Max, a capa de silicone oferece toque sedoso e proteção robusta contra quedas, com suporte total ao MagSafe.",
+    description: "Criada pela Apple, a capa de silicone oferece toque sedoso e proteção robusta contra quedas, com suporte total ao MagSafe.",
     specs: {
       chip: "N/A",
       camera: "N/A",
       battery: "N/A",
       screen: "N/A",
-      os: "Compatível com iPhone 16 Pro Max"
+      os: "Preto · Branco · Azul · Verde · Rosa · Vermelho · Lilás · Bege"
     }
   },
   {
     id: "pelicula-vidro-3d-premium",
-    name: "Película de Vidro 3D Premium / todos os modelos",
+    name: "Película de Vidro 3D Premium",
     model: "Acessórios",
     condition: "novo",
     price: 15.00,
@@ -1032,7 +1078,7 @@ const products = [
       camera: "N/A",
       battery: "N/A",
       screen: "N/A",
-      os: "Compatível com linhas iPhone 11 ao 16"
+      os: "iPhone XR ao 16"
     }
   }
 ];
