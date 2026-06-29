@@ -576,6 +576,29 @@ const products = [
     }
   },
   {
+    id: "iphone-15-128-seminovo-preto",
+    name: "iPhone 15 128GB Preto",
+    model: "iPhone 15",
+    condition: "seminovo",
+    price: 2500.00,
+    installments: 12,
+    storage: "128GB",
+    color: "Preto",
+    colorHex: "#222222",
+    category: "iphone",
+    images: ["assets/images/iphone15-preto.webp", "assets/images/iphone15-preto2.webp", "assets/images/iphone15-preto3.webp", "assets/images/iphone15-4.webp"], 
+    inStock: true,
+    isNew: false,
+    description: "iPhone 15 seminovo em excelente estado. Conta com a Dynamic Island, câmera principal de 48MP para retratos automáticos refinados e o conector USB-C universal.",
+    specs: {
+      chip: "A16 Bionic",
+      camera: "Dupla: Fusão de 48MP e Ultra-angular de 12MP com zoom digital e óptico de 2x",
+      battery: "Até 20 horas de reprodução de vídeo",
+      screen: "OLED Super Retina XDR de 6,1 polegadas com Dynamic Island",
+      os: "iOS 18 compatível"
+    }
+  },
+  {
     id: "iphone-15-128-lacrado-preto",
     name: "iPhone 15 128GB Preto (Lacrado)",
     model: "iPhone 15",
