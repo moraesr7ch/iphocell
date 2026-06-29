@@ -3258,6 +3258,125 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
   }
 }
 
+/* ==========================================================================
+   SEÇÃO DETALHES E DIFERENCIAIS DA ASSISTÊNCIA (SOBRE NÓS / QUEM SOMOS)
+   ========================================================================== */
+.section-assistance-features {
+  background-color: var(--bg-light);
+  padding: 100px 0;
+}
+
+.assistance-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.assistance-features-left {
+  width: 100%;
+}
+
+.assistance-features-img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium);
+  object-fit: cover;
+  display: block;
+}
+
+.assistance-features-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.features-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.features-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 4px;
+  display: block;
+}
+
+.features-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.features-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 16px;
+}
+
+.feature-detail-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.feature-detail-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 8px;
+  background-color: #007AFF; /* Azul Royal Apple */
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-detail-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.feature-detail-text h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.feature-detail-text p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Responsividade */
+@media (max-width: 991px) {
+  .section-assistance-features {
+    padding: 60px 0;
+  }
+  .assistance-features-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .features-title {
+    font-size: 1.85rem;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .features-details-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
 #featured-accessories-section {
   padding-top: 0;
   background-color: var(--bg-light);
