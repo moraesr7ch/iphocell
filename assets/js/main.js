@@ -180,6 +180,11 @@ function initGlobalFeatures() {
       <li><a href="manutencao.html">Manutenção</a></li>
       <li><a href="sobre.html">Sobre Nós</a></li>
     </ul>
+    <button class="menu-toggle open" id="mobile-menu-close-btn" style="position: absolute; bottom: 40px; right: 40px; display: flex;" aria-label="Fechar Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   `;
   document.body.appendChild(mobileOverlay);
 
@@ -188,6 +193,17 @@ function initGlobalFeatures() {
       menuToggle.classList.toggle('open');
       mobileOverlay.classList.toggle('open');
       document.body.style.overflow = mobileOverlay.classList.contains('open') ? 'hidden' : '';
+    });
+  }
+
+  const menuCloseBtn = mobileOverlay.querySelector('#mobile-menu-close-btn');
+  if (menuCloseBtn) {
+    menuCloseBtn.addEventListener('click', () => {
+      if (menuToggle) {
+        menuToggle.classList.remove('open');
+      }
+      mobileOverlay.classList.remove('open');
+      document.body.style.overflow = '';
     });
   }
 
