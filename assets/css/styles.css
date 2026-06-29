@@ -2941,7 +2941,7 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
 @media (min-width: 992px) {
   .sticky-stack-container {
     position: relative;
-    background-color: #0A0A0A; /* Fundo preto sob as bordas superiores arredondadas */
+    background-color: #F2F2F2; /* Fundo cinza claro sob as bordas superiores arredondadas */
     overflow: visible;
   }
 
@@ -2950,9 +2950,8 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
   }
 
   .section-assistance-apple {
-    position: sticky;
-    top: 64px; /* Fixa logo abaixo da navbar */
-    z-index: 1; /* Fica abaixo da seção de produtos */
+    position: relative;
+    z-index: 5;
   }
 
   #featured-products-section,
@@ -2973,15 +2972,13 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
   }
 
   .iphone12-intro-section {
-    position: sticky;
-    top: 64px; /* Fixa logo abaixo da navbar, idêntico à seção de manutenção */
-    z-index: 1;
+    position: relative;
+    z-index: 3;
   }
 
   .iphone12-details-section {
-    position: sticky; /* Fixa na tela assim que o scroll a atinge */
-    top: 64px;
-    z-index: 2;
+    position: relative;
+    z-index: 3;
     background-color: #000000;
   }
 
@@ -2999,7 +2996,7 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
    SEÇÃO DE ASSISTÊNCIA TÉCNICA - ESTILO APPLE (FUNDO PRETO & DUAS COLUNAS)
    ========================================================================== */
 .section-assistance-apple {
-  background-color: #0A0A0A;
+  background-color: #000000;
   padding: 120px 0 220px 0;
   display: flex;
   align-items: center;
