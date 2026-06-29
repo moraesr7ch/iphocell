@@ -298,6 +298,66 @@ function initHomePage() {
   const accessoriesContainer = document.querySelector('.accessories-scroll-container');
   if (!scrollContainer) return;
 
+  // Renderizar Favoritos da iPhocell
+  const favoritesContainer = document.querySelector('.favorites-scroll-container');
+  if (favoritesContainer) {
+    const favoriteIds = ["iphone-xr-64-preto", "iphone-11-64-branco", "iphone-12-64-azul", "iphone-15-128-seminovo-preto"];
+    const favorites = [];
+    favoriteIds.forEach(id => {
+      const prod = products.find(p => p.id === id);
+      if (prod) {
+        favorites.push(prod);
+      }
+    });
+
+    let favHtml = '';
+    favorites.forEach(product => {
+      const isFav = isInWishlist(product.id);
+      const favClass = isFav ? 'active' : '';
+      const condLabel = product.condition === 'novo' ? 'Novo' : product.condition === 'seminovo' ? 'Seminovo' : 'Lacrado';
+      const condClass = product.condition;
+      const installmentsVal = (product.price / product.installments).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      
+      const safeId = sanitizeHTML(product.id);
+      const safeName = sanitizeHTML(product.name);
+      const safeImg = sanitizeHTML(product.images[0]);
+      
+      const isIphone11 = product.model === 'iPhone 11';
+      const bestSellerBadge = isIphone11 ? `<span class="badge-mais-vendido" style="background-color: #FF3B30; color: #ffffff; padding: 4px 10px; border-radius: 50px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; margin-bottom: 6px;">Mais Vendido</span>` : '';
+
+      favHtml += `
+        <div class="product-card">
+          <button class="card-wishlist-btn ${favClass}" onclick="toggleWishlist('${safeId}'); this.classList.toggle('active');" aria-label="Favoritar"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
+          <div class="product-card-img-wrapper" onclick="navigateToProduct('${safeId}')">
+            <img src="${safeImg}" alt="${safeName}">
+            <div class="card-badges" style="display: flex; flex-direction: column; gap: 6px;">
+              ${bestSellerBadge}
+              <span class="badge-condicao ${condClass}">${condLabel}</span>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <div>
+              <h3 class="product-card-title" onclick="navigateToProduct('${safeId}')">${product.category === 'iphone' ? sanitizeHTML(product.model) : safeName}</h3>
+              ${getProductCardMetaHTML(product, false)}
+            </div>
+            <div>
+              <div class="product-card-price-row">
+                <span class="card-price-label">A partir de</span>
+                <span class="card-price-val">R$ ${product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+                <span class="card-price-installments">ou 12x de <span>R$ ${installmentsVal}</span> sem juros</span>
+              </div>
+              <div class="product-card-actions">
+                <button class="btn btn-outline" onclick="navigateToProduct('${safeId}')">Ver detalhes</button>
+                <button class="btn btn-primary" onclick="addToCart('${safeId}', 1)">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    favoritesContainer.innerHTML = favHtml;
+  }
+
   // Filtrar apenas iPhones mais recentes (Destaques) e agrupar por modelo
   const featuredModels = ["iPhone 13", "iPhone 14", "iPhone 15", "iPhone 16"];
   const featured = getGroupedProducts(products.filter(p => featuredModels.includes(p.model)));

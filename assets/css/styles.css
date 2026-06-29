@@ -2945,6 +2945,15 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
     overflow: visible;
   }
 
+  .section-favorites {
+    position: relative;
+    z-index: 5;
+    background-color: var(--bg-light);
+    border-top-left-radius: 40px; /* Efeito gaveta */
+    border-top-right-radius: 40px;
+    box-shadow: 0 -20px 45px rgba(0, 0, 0, 0.12); /* Sombra para marcar profundidade */
+  }
+
   .iphone12-stack-container {
     background-color: #000000; /* Fundo preto absoluto para ocultar a lacuna do sticky scroll (barra cinza) */
   }
@@ -2957,14 +2966,9 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
   #featured-products-section,
   #featured-accessories-section {
     position: relative;
-    z-index: 5; /* Fica sobre a seção de assistência */
-    background-color: var(--bg-light); /* Fundo branco opaco */
+    z-index: 5;
+    background-color: var(--bg-light);
   }
-
-  #featured-products-section {
-    border-top-left-radius: 40px; /* Efeito gaveta */
-    border-top-right-radius: 40px;
-    box-shadow: 0 -20px 45px rgba(0, 0, 0, 0.12); /* Sombra para marcar profundidade */
   }
 
   #featured-accessories-section {
@@ -2990,6 +2994,14 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
     border-top-right-radius: 40px;
     box-shadow: 0 -20px 45px rgba(0, 0, 0, 0.12); /* Sombra para marcar profundidade */
   }
+}
+
+/* ==========================================================================
+   SEÇÃO FAVORITOS DA IPHOCELL (MAIS VENDIDOS)
+   ========================================================================== */
+.section-favorites {
+  background-color: var(--bg-light);
+  padding: 100px 0;
 }
 
 /* ==========================================================================
