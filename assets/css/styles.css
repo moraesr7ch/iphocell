@@ -2779,8 +2779,92 @@ body:has(.hero) .header:not(.scrolled) .search-input-wrapper:focus-within i {
   }
 }
 
-/* Breakpoint: Mobile Pequeno (<= 768px) */
 @media (max-width: 768px) {
+  .trust-badges {
+    height: 72px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    background-color: #F9F9FB !important; /* Off-white premium estilo Apple */
+    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  .trust-badges .container {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    width: 100% !important;
+  }
+  
+  .badges-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0 !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  
+  .badges-grid .badge-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    background: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    flex: none !important;
+    position: relative !important;
+    height: 48px !important;
+  }
+
+  .badges-grid .badge-item:not(:last-child)::after {
+    content: "" !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 15% !important;
+    height: 70% !important;
+    width: 1px !important;
+    background-color: rgba(0, 0, 0, 0.07) !important;
+  }
+  
+  .badges-grid .badge-icon-wrapper {
+    background: none !important;
+    box-shadow: none !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .badges-grid .badge-icon-wrapper svg {
+    width: 18px !important;
+    height: 18px !important;
+    stroke-width: 1.5px !important;
+    color: #111111 !important;
+  }
+  
+  .badges-grid .badge-info {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+  
+  .badges-grid .badge-info h4 {
+    font-size: 0.6rem !important;
+    line-height: 1.15 !important;
+    font-weight: 500 !important;
+    color: #2D2D2D !important;
+    max-width: 72px !important;
+  }
+  
+  .badges-grid .badge-info p {
+    display: none !important;
+  }
+
   .nav-links {
     display: none;
   }
