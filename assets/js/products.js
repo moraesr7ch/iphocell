@@ -11,7 +11,7 @@ const products = [
     color: "Preto",
     colorHex: "#1C1D21",
     category: "iphone",
-    images: ["assets/images/iphonexr.webp", "assets/images/iphonexr-preto2.webp", "assets/images/iphonexr-preto3.png", "assets/images/iphonexr-preto4.webp"],
+    images: ["assets/images/iphonexr.webp", "assets/images/iphonexr-preto2.webp", "assets/images/iphonexr-preto3.webp", "assets/images/iphonexr-preto4.webp"],
     inStock: true,
     isNew: false,
     description: "O iPhone Xr traz a brilhante tela Liquid Retina de 6,1 polegadas, o desempenho veloz do chip A12 Bionic e uma câmera traseira avançada de 12MP com modo Retrato.",
